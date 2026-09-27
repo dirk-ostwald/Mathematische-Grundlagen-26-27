@@ -27,7 +27,7 @@ book:
     - name: Dirk Ostwald
       affiliation: Otto-von-Guericke-Universität Magdeburg
   date: today
-  output-file: Mathematische-Grundlagen-Vorlesungsskript
+  output-file: Skript-Mathematische-Grundlagen
   chapters:
     - index.qmd
     - _src/_part_1/101-Sprache-und-Logik.qmd

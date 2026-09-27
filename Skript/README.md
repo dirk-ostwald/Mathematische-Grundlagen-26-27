@@ -14,7 +14,7 @@ Quarto verlangt, dass alle Kapiteldateien innerhalb des Projektverzeichnisses
 liegen. Deshalb wird das Quellprojekt über eine Windows-Verzeichnis-Junction
 `_src` in dieses Verzeichnis eingeblendet:
 
-    Vorlesungsskript\_src  -->  ...\pdwp-online\dirk-ostwald.github.io
+    Skript\_src  -->  ...\pdwp-online\dirk-ostwald.github.io
 
 Eine Junction ist ein Verweis, keine Kopie: Änderungen in der Quelle sind hier
 sofort wirksam. Da die Kapitel damit unter ihren gewohnten relativen Pfaden
@@ -23,14 +23,30 @@ liegen, funktionieren Abbildungen (`./_figures/...`), `Referenzen.bib` und
 
 ## Einrichtung (einmalig)
 
+Vorausgesetzt werden Quarto und eine LaTeX-Installation mit XeLaTeX sowie den
+Paketen und Schriften, die `_src/_texheader.tex` einbindet. In `_quarto.yml`
+ist `latex-tinytex: false` gesetzt. Das Skript nutzt damit die vorhandene
+LaTeX-Installation. Für den konfigurierten CSL-Stil ist Internetzugang nötig.
+
+Die Skriptkapitel und ihre Ressourcen müssen separat lokal vorliegen.
+`Setup.cmd` lädt sie nicht herunter. Das Quellprojekt ist
+[PDWP](https://github.com/dirk-ostwald/dirk-ostwald.github.io/tree/gh-pages).
+Benötigt werden insbesondere `_part_1`, die zugehörigen Abbildungen,
+`Referenzen.qmd`, `Referenzen.bib` und `_texheader.tex`.
+
 1. **Nextcloud-Ausschluss** – sonst könnte der Client die über die Junction
    sichtbaren Inhalte ein zweites Mal synchronisieren. Die Datei
    `.sync-exclude.lst` in diesem Verzeichnis schließt `_src`, `_book` und
    `.quarto` bereits lokal aus. Zusätzlich (zur Sicherheit) global:
    Nextcloud-Client → *Einstellungen* → *Allgemein* → *Ignorierte Dateien
    bearbeiten* → Muster `_src` hinzufügen.
-2. `Setup.cmd` per Doppelklick ausführen. Legt `_src` an; Administratorrechte
-   sind nicht erforderlich. (Auf diesem Rechner ist `_src` bereits angelegt.)
+2. In `Setup.cmd` den Wert `QUELLE` auf den eigenen lokalen Pfad zum
+   PDWP-Quellprojekt anpassen. Der voreingestellte Pfad ist rechnerspezifisch.
+3. `Setup.cmd` unter Windows per Doppelklick ausführen. Das Skript legt `_src`
+   als Junction an. Administratorrechte sind dafür nicht erforderlich.
+
+Die `.cmd`-Hilfsskripte sind für Windows vorgesehen. Auf anderen Betriebssystemen
+muss `_src` als entsprechender Verzeichnislink eingerichtet werden.
 
 ## Rendern
 
@@ -38,7 +54,10 @@ liegen, funktionieren Abbildungen (`./_figures/...`), `Referenzen.bib` und
 
     quarto render --to pdf
 
-Ergebnis: `_book\Mathematische-Grundlagen-Vorlesungsskript.pdf`
+Ergebnis: `_book\Skript-Mathematische-Grundlagen.pdf`
+
+Der Dateiname wird in `_quarto.yml` über `book: output-file:` festgelegt.
+Die Ausgabe unter `_book/` ist lokal und wird nicht mit Git versioniert.
 
 ## Kapitelauswahl ändern
 
@@ -62,9 +81,8 @@ ergänzt; Kapitel aus anderen Teilen analog über `_src/_part_3/...` usw.
 
 ## Hinweise
 
-- Querverweise funktionieren innerhalb der Kapitel 101–107 vollständig; die
-  einzigen kapitelübergreifenden Verweise auf 108/109 stehen in `100-…qmd`,
-  das bewusst nicht eingebunden ist.
+- Nach Änderungen an den externen Kapiteln Querverweise und Literaturangaben
+  im erzeugten PDF prüfen. Kapitel außerhalb der Auswahl werden nicht gerendert.
 - Das Skript nutzt dieselben LaTeX-Makros wie das Buch, da
   `_src/_texheader.tex` mit eingebunden wird. `_titelseite.tex` wird danach
   geladen und ersetzt nur Titelseite und Fußzeile.
