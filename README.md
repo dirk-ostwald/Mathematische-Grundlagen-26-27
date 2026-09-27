@@ -20,12 +20,11 @@ außer einem PDF-Betrachter erforderlich.
 | 6 · Differenzialrechnung | [PDF](6-Differenzialrechnung/6-Differenzialrechnung.pdf) | [Ordner](6-Differenzialrechnung/) |
 | 7 · Integralrechnung | [PDF](7-Integralrechnung/7-Integralrechnung.pdf) | [Ordner](7-Integralrechnung/) |
 
-Das begleitende **Vorlesungsskript** wird im Ordner [Skript](Skript/) aus den
-Kapiteln 101–107 des Lehrbuchs *Probabilistische Datenwissenschaft für die
-Psychologie (PDWP)* erstellt. Diese Kapitel werden aus einem separaten lokalen
-Quellprojekt eingebunden und sind nicht in diesem Repository enthalten.
-Das erzeugte Skript-PDF wird ebenfalls nicht versioniert.
-Einrichtung und Ausgabe sind in der [Skript-Anleitung](Skript/README.md) beschrieben.
+Das begleitende **[Vorlesungsskript als PDF](Skript/_book/Skript-Mathematische-Grundlagen.pdf)**
+enthält die Kapitel 101–107 des Lehrbuchs *Probabilistische Datenwissenschaft
+für die Psychologie (PDWP)*. Die PDF kann direkt geöffnet oder heruntergeladen
+werden. Die zugrunde liegenden Kapitelquellen werden im separaten PDWP-Projekt
+gepflegt.
 
 ## Aufbau
 
@@ -33,7 +32,8 @@ Einrichtung und Ausgabe sind in der [Skript-Anleitung](Skript/README.md) beschri
   lokale LaTeX-Header sowie Literaturverzeichnisse im BibTeX-Format.
 - Die jeweiligen Abbildungsordner enthalten Grafiken und teilweise bearbeitbare
   PowerPoint-Quelldateien.
-- `Skript/` enthält das eigenständige Quarto-Buchprojekt und Windows-Hilfsskripte.
+- `Skript/_book/` enthält das fertige Vorlesungsskript als PDF.
+- `Skript/` enthält außerdem die Konfiguration und Vorbemerkungen des Skripts.
 
 ## Folien selbst erstellen
 
@@ -62,7 +62,7 @@ Für Formalia lautet der entsprechende Aufruf im Ordner `0-Formalia`:
 quarto render Formalia.qmd --to beamer
 ```
 
-Die Folien-PDFs und Abbildungen werden bewusst mit Git versioniert. Temporäre
+Die Folien-PDFs, das Skript-PDF und Abbildungen werden mit Git versioniert. Temporäre
 Render-Dateien, Caches und die extern eingebundenen Skriptquellen werden ignoriert.
 
 ## Korrekturen und Beiträge

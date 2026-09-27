@@ -30,6 +30,5 @@ Desktop.ini
 *.run.xml
 *.vrb
 
-# Externe Skriptquellen und lokale Buchausgabe
+# Externe Skriptquellen
 /Skript/_src/
-/Skript/_book/

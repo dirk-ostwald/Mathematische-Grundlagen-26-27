@@ -1,5 +1,6 @@
 _src/
-_book/
+_book/*
+!_book/Skript-Mathematische-Grundlagen.pdf
 .quarto/
 *.tex
 !_titelseite.tex

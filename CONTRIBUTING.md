@@ -32,10 +32,10 @@ Inhaltliche Änderungen dieser Kapitel gehören dorthin. Die lokale Einbindung
 `Skript/_src` ist eine Verzeichnisverknüpfung, keine unabhängige Kopie.
 Änderungen darin wirken unmittelbar auf das Quellprojekt.
 
-In diesem Repository liegen die Skriptkonfiguration, Titelseite und Vorbemerkungen.
-Nach Änderungen daran das Skript rendern und die Ausgabe unter `Skript/_book/`
-prüfen. Die Verknüpfung, Quarto-Caches und das erzeugte Skript-PDF bleiben außerhalb
-der Versionsverwaltung.
+In diesem Repository liegen die Skriptkonfiguration, Titelseite, Vorbemerkungen
+und das fertige Skript unter `Skript/_book/Skript-Mathematische-Grundlagen.pdf`.
+Bei Aktualisierungen des Skripts auch die geprüfte PDF in Git aufnehmen.
+Die Verknüpfung und Quarto-Caches bleiben außerhalb der Versionsverwaltung.
 
 Nach Änderungen an der zugehörigen Zotero-Bibliothek die Projektbibliografie im
 Format **Better BibTeX** neu exportieren und die bestehende `.bib`-Datei ersetzen.
