@@ -1,0 +1,16 @@
+# Vorbemerkungen {.unnumbered}
+
+Dieses Vorlesungsskript begleitet die Veranstaltung *Mathematische Grundlagen*
+am Institut für Psychologie der Otto-von-Guericke-Universität Magdeburg im
+Wintersemester 2026/2027. Die Kapitel dieses Skripts sind unverändert dem Lehrbuch 
+*Probabilistische Datenwissenschaft für die Psychologie (PDWP)* entnommen. 
+
+## Zitation {.unnumbered}
+
+Ostwald, D. (2024) Probabilistische Datenwissenschaft für die Psychologie.
+[10.5281/zenodo.10730199](https://zenodo.org/records/10730200)
+
+## Lizenz {.unnumbered}
+
+Dieses Werk ist lizenziert unter einer Creative Commons Namensnennung 4.0
+International Lizenz (CC BY 4.0).

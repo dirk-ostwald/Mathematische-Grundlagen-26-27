@@ -1,0 +1,169 @@
+---
+fontsize: 8pt
+format:
+    beamer:
+        include-in-header: "Header.tex"
+bibliography: Referenzen.bib
+---
+
+#  {.plain}
+
+\center
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("Abbildungen/magl-otto.png")
+```
+\vspace{1mm}
+\huge
+Mathematische Grundlagen
+\vspace{4mm}
+
+\normalsize
+BSc Psychologie | MSc Psychologie | MSc Klinische Psychologie und Psychotherapie
+
+MSc Umweltpsychologie/Mensch-Technik-Interaktion 
+ 
+\vspace{4mm}
+\setstretch{1.4}
+
+\Large
+WiSe 2026/27
+
+\vspace{3mm}
+\normalsize
+Prof. Dr. Dirk Ostwald
+
+#  {.plain}
+
+\vfill
+\center
+\Huge
+\textcolor{red}{Aufnahme läuft!}
+\vfill
+
+
+#  {.plain}
+\vfill
+\center
+\huge
+\textcolor{black}{Formalia}
+\vfill
+
+# Formalia 
+\vfill
+\large
+$\,$ Prof. Dr. Dirk Ostwald (dirk.ostwald@ovgu.de)
+\vspace{2mm}
+
+\normalsize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+Seit 2021 	& W2-Professur Methodenlehre  				        \\
+2014 - 2020 & W1-Professur Freie Universität Berlin 	        \\
+2010 - 2014 & Postdoc BCCN \& MPIB Berlin				        \\
+2007 - 2010 & PhD Psychologie Birmingham				        \\
+2004 - 2006 & MSc Neurowissenschaften Tübingen			        \\
+2005 - 2012 & BSc Mathematik Hagen						        \\
+2000 - 2003 & BSc Medizin Hamburg						        \\
+\end{tabular}
+\vspace{2mm}
+
+\large
+\begin{tabular}{ll}
+Forschung 	& Komputationale kognitive Neurowissenschaften	\\
+Lehre 		& Datenwissenschaft
+\end{tabular}
+\vfill
+
+# Formalia
+\small 
+\textcolor{darkblue}{MINT@OVGU Vorkurse | Aufbaukurs: Fit für Psychologie | Mathematische Grundlagen}
+
+\textcolor{darkblue}{BSc Psychologie}
+
+* A2 Einführung in die Forschungsmethoden der Psychologie
+* B1 Statistik I (Wahrscheinlichkeitstheorie und frequentistische Inferenz)
+* B2 Statistik II (Das allgemeine lineare Modell)
+* C  Einführung in empirisch-wissenschaftliches Arbeiten (Programmierung)
+* E1 Grundlagen der Testtheorie (Fragebogendatenanalyse)
+
+\textcolor{darkblue}{MSc Klinische Psychologie und Psychotherapie}
+
+* A1 Vertiefung allgemeiner Forschungsmethoden (Multivariate Verfahren)
+* A2 Vertiefung allgemeiner Forschungsmethoden (Interventionsforschung)
+* B2 Testtheorie und Testkonstruktion (Psychometrische Diagnostik)
+
+\textcolor{darkblue}{MSc Psychologie und MSc Umweltpsychologie/Mensch-Technik-Interaktion}
+
+* A1 Multivariate Verfahren 
+* A3 Computergestützte Erhebung, Modellierung und Datenanalyse
+
+
+# Formalia 
+\vspace{1mm}
+\textcolor{darkblue}{Mathematische Grundlagen}
+\vspace{1mm}
+
+\footnotesize
+\center
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llll}
+            & Datum         & Zeit              & Einheit				                        \\\hline
+Montag      & 28.09.2026    & 09.00 - 10.00 Uhr & Formalia 		    		                    \\
+Montag      & 28.09.2026    & 10.00 - 12.00 Uhr & (1) Sprache und Logik	                        \\
+Montag      & 28.09.2026    & 13.00 - 16.00 Uhr & (2) Mengen           	                        \\ 
+Dienstag    & 29.09.2026    & 09.00 - 12.00 Uhr & (3) Summen, Produkte, Potenzen                \\ 
+Dienstag    & 29.09.2026    & 13.00 - 16.00 Uhr & (4) Funktionen           	                    \\ 
+Mittwoch    & 30.09.2026    & 09.00 - 12.00 Uhr & (4) Funktionen                                \\ 
+Mittwoch    & 30.09.2026    & 13.00 - 16.00 Uhr & (5) Folgen, Grenzwerte, Stetigkeit            \\ 
+Donnerstag  & 01.10.2026    & 09.00 - 12.00 Uhr & (6) Differenzialrechnung           	        \\ 
+Donnerstag  & 01.10.2026    & 13.00 - 16.00 Uhr & (6) Differenzialrechnung        	            \\  
+Freitag     & 02.10.2026    & 09.00 - 12.00 Uhr & (7) Integralrechnung           	            \\ 
+Freitag     & 02.10.2026    & 13.00 - 16.00 Uhr & (7) Integralrechnung        	                \\\hline 
+Donnerstag  & 08.10.2026    & 09.00 - 12.00 Uhr & Akademischer Jahresauftakt                    \\
+Donnerstag  & 15.10.2026    & 08.00 - 11.00 Uhr & Statistik I                                   \\
+Freitag     & 16.10.2026    & 07.00 - 09.00 Uhr & Psychologische Forschungsmethoden             \\
+\end{tabular}
+
+# Formalia 
+[\textcolor{darkblue}{Lehrmaterialien}](https://www.ipsy.ovgu.de/methodenlehre_I-path-980,1404.html)
+
+\vspace{5mm}
+\center
+```{r, echo = FALSE, out.width = "65%"}
+knitr::include_graphics("Abbildungen/magl-homepage.png")
+```
+
+# Formalia 
+\textcolor{darkblue}{Weiterführende Literatur}
+\small
+
+@voggenauer2025
+
+* Allgemeinbildung Mathematik 
+* Was man über Mathematik wissen kann, ohne es können zu müssen
+
+@arens2018
+
+* Mathematik
+
+@baerwolff2017
+
+* Höhere Mathematik für Naturwissenschaftler und Ingenieure 
+
+@papula2014, @papula2015, @papula2016
+
+* Mathematik für Ingenieure und Naturwissenschaftler  
+
+@deisenroth2020
+
+* Mathematics for Machine Learning
+
+# Formalia
+\center 
+\Huge
+\vfill
+Q \& A
+\vfill
+
+# Referenzen
+\footnotesize

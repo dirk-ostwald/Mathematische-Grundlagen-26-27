@@ -1,0 +1,52 @@
+#-----------------------------------------------------------------------------#
+# Vorlesungsskript "Mathematische Grundlagen"
+#
+# Die Inhalte dieses Buchprojekts werden NICHT dupliziert. Einzige Quelle ist
+# das Buchprojekt
+#
+#   C:\Users\dirko\Nextcloud\Home\pdwp-online\dirk-ostwald.github.io
+#
+# das über die Windows-Verzeichnis-Junction _src in dieses Projektverzeichnis
+# eingeblendet wird (vgl. README.md und Setup.cmd). Dadurch bleiben alle
+# relativen Pfade der Kapiteldateien (./_figures/..., Referenzen.bib,
+# _texheader.tex) unverändert gültig.
+#-----------------------------------------------------------------------------#
+
+project:
+  type: book
+  output-dir: _book
+
+csl: https://www.zotero.org/styles/apa
+pdf-engine: xelatex
+bibliography: _src/Referenzen.bib
+
+book:
+  title: "Mathematische Grundlagen"
+  subtitle: "Vorlesungsskript"
+  author:
+    - name: Dirk Ostwald
+      affiliation: Otto-von-Guericke-Universität Magdeburg
+  date: today
+  output-file: Mathematische-Grundlagen-Vorlesungsskript
+  chapters:
+    - index.qmd
+    - _src/_part_1/101-Sprache-und-Logik.qmd
+    - _src/_part_1/102-Mengen.qmd
+    - _src/_part_1/103-Summen-Produkte-Potenzen.qmd
+    - _src/_part_1/104-Funktionen.qmd
+    - _src/_part_1/105-Folgen-Grenzwerte-Stetigkeit.qmd
+    - _src/_part_1/106-Differenzialrechnung.qmd
+    - _src/_part_1/107-Integralrechnung.qmd
+    - _src/Referenzen.qmd
+
+format:
+  pdf:
+    lang: de
+    documentclass: scrreprt
+    toc-depth: 2
+    keep-tex: false
+    code-line-numbers: false
+    latex-tinytex: false
+    include-in-header:
+      - _src/_texheader.tex
+      - _titelseite.tex

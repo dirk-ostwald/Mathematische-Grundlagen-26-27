@@ -1,0 +1,37 @@
+% --------------------------------------------------------------------------- %
+% Titelseite und Fußzeile des Vorlesungsskripts.
+%
+% Diese Datei wird in _quarto.yml NACH _src/_texheader.tex eingebunden und
+% überschreibt daher gezielt die dortigen Definitionen von \maketitle und
+% \rfoot. Alle Mathematik- und Layoutmakros der Quelle bleiben erhalten.
+% --------------------------------------------------------------------------- %
+
+% Fußzeile
+\rfoot{\footnotesize Mathematische Grundlagen
+$\vert$ \copyright $ $ 2026 Dirk Ostwald CC BY 4.0}
+
+% Titelseite
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+    \centering
+
+    \vfill
+
+    \includegraphics[width=0.6\textwidth]{_logo.png}
+
+    \vspace{6cm}
+
+    \Huge{Mathematische Grundlagen}
+  
+    \vspace{6cm}
+
+    \huge{Dirk Ostwald}
+
+    \vspace{0.5cm}
+
+    \Large{Wintersemester 2026/2027}
+
+    \vfill
+
+\end{titlepage}
+}

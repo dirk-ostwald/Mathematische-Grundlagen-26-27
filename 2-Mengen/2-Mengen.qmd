@@ -1,0 +1,834 @@
+---
+fontsize: 8pt
+format:
+    beamer:
+        include-in-header: "2-Header.tex"
+bibliography: 2-Referenzen.bib
+---
+
+#  {.plain}
+
+\center
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-otto.png")
+```
+\vspace{1mm}
+\huge
+Mathematische Grundlagen
+\vspace{4mm}
+
+\normalsize
+BSc Psychologie | MSc Psychologie | MSc Klinische Psychologie und Psychotherapie
+
+MSc Umweltpsychologie/Mensch-Technik-Interaktion 
+ 
+\vspace{4mm}
+\setstretch{1.4}
+
+\Large
+WiSe 2026/27
+
+\vspace{3mm}
+\normalsize
+Prof. Dr. Dirk Ostwald
+
+#  {.plain}
+\vfill
+\center
+\huge
+\textcolor{black}{(2) Mengen}
+\vfill
+
+#  
+\large
+\setstretch{3}
+
+Grundlegende Definitionen
+
+Verknüpfungen
+
+Spezielle Mengen
+
+Selbstkontrollfragen
+
+#  
+\large
+\setstretch{3}
+
+**Grundlegende Definitionen**
+
+Verknüpfungen
+
+Spezielle Mengen
+
+Selbstkontrollfragen
+
+
+# Grundlegende Definitionen
+\small
+\begin{definition}[Mengen]
+\justifying
+Nach Cantor (1895) ist eine \textit{Menge} $M$ definiert als ``eine
+Zusammenfassung von
+bestimmten wohlunterschiedenen Objekten $m$ unserer Anschauung oder unseres
+Denkens
+(welche die Elemente der Menge genannt werden) zu einem Ganzen''. Wir schreiben
+\begin{equation}
+m \in M \mbox{ bzw. } m \notin M,
+\end{equation}
+um auszudrücken, dass $m$ ein Element bzw. kein Element von $M$ ist.
+\end{definition}
+
+Zur 
+Definition von Mengen gibt es mindestens folgende Möglichkeiten:
+\begin{itemize}
+\item[(1)] Auflisten der Elemente in geschweiften Klammern, z. B.
+$M := \{1,2,3\}$
+\item[(2)] Angabe der Eigenschaften der Elemente, z. B.
+$M := \{x \in \mathbb{N}|x < 4\}$
+\item[(3)] Gleichsetzen mit einer anderen eindeutig definierten Menge, z. B.
+$M := \mathbb{N}_3$
+\end{itemize}
+
+Bemerkungen
+
+* $\{x \in \mathbb{N}|x < 4\}$ wird als "$x \in \mathbb{N}$, für die gilt, dass $x < 4$ ist" gelesen.
+* Die Bedeutung von $\mathbb{N}$ und $\mathbb{N}_3$ wird im Folgenden erläutert.
+* Mengen sind \textit{ungeordnet}, d. h. es gilt zum Beispiel
+$\{1,2,3\} = \{1,3,2\} = \{2,3,1\}$.
+
+# Grundlegende Definitionen
+\small
+\begin{definition}[Teilmengen und Mengengleichheit]
+\justifying
+$M$ und $N$ seien zwei Mengen.
+
+\begin{itemize}
+\item Eine Menge $M$ heißt \textit{Teilmenge} einer Menge $N$, wenn für jedes
+Element
+$m \in M$ gilt, dass auch $m\in N$. Ist $M$ eine Teilmenge von $N$, so schreibt
+man
+\begin{equation}
+M \subseteq N
+\end{equation}
+und nennt $M$ \textit{Untermenge} von $N$ und $N$ \textit{Obermenge} von $M$.
+\item Eine Menge $M$ heißt \textit{echte Teilmenge} einer Menge $N$, wenn für
+jedes Element
+$m \in M$ gilt, dass auch $m\in N$, es aber zumindest ein Element $n \in N$
+gibt,
+für das gilt $n \notin M$. Ist $M$ eine echte Teilmenge von $N$, so schreibt man
+\begin{equation}
+M \subset N.
+\end{equation}
+\item Zwei Mengen $M$ und $N$ heißen \textit{gleich}, wenn für jedes Element
+$m \in M$ gilt,
+dass auch $m \in N$, und wenn für jedes Element $n \in N$ gilt, dass auch
+$n\in M$.
+Sind die Mengen $M$ und $N$ gleich, so schreibt man
+\begin{equation}
+M = N.
+\end{equation}
+\end{itemize}
+\end{definition}
+
+# Grundlegende Definitionen
+
+\small
+Beispiel
+
+\footnotesize
+Es seien $M := \{1\}$, $N := \{1,2\}$, $O := \{1,2\}$. Dann gelten $M \subset N, N \subseteq O, O \subseteq N$ und $N = O$.
+
+\vspace{2mm}
+\center
+```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-teilmengen.pdf")
+```
+
+# Grundlegende Definitionen
+\small
+\begin{definition}[Kardinalität]
+\justifying
+Die Anzahl der Elemente einer Menge $M$ heißt \textit{Kardinalität} und wird mit
+$|M|$ bezeichnet.
+\end{definition}
+
+\footnotesize
+Beispiele
+
+* Für $M := \{1,2,3\}$ gilt $|M| = 3$.
+* Für $M := \{a,b\}$ gilt $|M| = 2$.
+* Für $M := \{x,y,z,\pi\}$ gilt $|M| = 4$.
+
+# Grundlegende Definitionen
+\small
+\begin{definition}[Leere Menge]
+\justifying
+Eine Menge mit Kardinalität null heißt \textit{leere Menge} und wird mit
+$\emptyset$ bezeichnet.
+\end{definition}
+
+* Für $M := \emptyset$ gilt $|M| = 0$.
+
+# Grundlegende Definitionen
+\small
+\begin{definition}[Potenzmenge]
+\justifying
+Die Menge aller Teilmengen einer Menge $M$ heißt \textit{Potenzmenge von $M$}
+und wird mit $\mathcal{P}(M)$ bezeichnet.
+\end{definition}
+
+
+\footnotesize
+Bemerkungen
+
+* Man beachte, dass die leere Untermenge von $M$ und $M$ selbst immer Elemente von $\mathcal{P}(M)$ sind.
+
+# Grundlegende Definitionen
+\small
+
+Wir betrachten vier Beispiele zum Begriff der Potenzmenge.
+
+* $M_0 := \emptyset$ sei die leere Menge. Dann gilt
+\begin{equation}
+\mathcal{P}(M_0) = \{\emptyset\}.
+\end{equation}
+
+* $M_1$ sei die einelementige Menge $M_1 := \{a\}$. Dann gilt
+\begin{equation}
+\mathcal{P}(M_1) = \{\emptyset,\{a\}\}.
+\end{equation}
+
+* Es sei $M_2 := \{a,b\}$. Dann hat $M_2$ sowohl ein- als auch zweielementige Teilmengen
+und es gilt
+\begin{equation}
+\mathcal{P}(M_2) = \{\emptyset,\{a\}, \{b\}, \{a,b\}\}.
+\end{equation}
+
+* Es sei $M_3 := \{a,b,c\}$. Dann hat $M_3$ ein-, zwei- und
+dreielementige Teilmengen und es gilt
+\begin{equation}
+\mathcal{P}(M_3) = \{\emptyset, \{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}.
+\end{equation}
+
+
+# Grundlegende Definitionen
+\small
+\begin{theorem}[Kardinalität der Potenzmenge]
+\justifying
+\normalfont
+Gegeben sei eine Menge $M$ mit Kardinalität $|M| = n$ und $\mathcal{P}(M)$ sei
+ihre Potenzmenge. Dann gilt $|\mathcal{P}(M)| = 2^n$.
+\end{theorem}
+
+\footnotesize
+\underline{Beweis}
+
+Um die Aussage des Theorems zu beweisen, assoziieren wir jedes Element $P$ der 
+Potenzmenge von $M$ eindeutig mit einer binären Folge der Länge $n$, wobei der Eintrag 
+an der $i$ -ten Stelle repräsentiert, ob das $i$ -te Element von $M$ ein Element
+von $P$ ist oder nicht.
+Seien beispielsweise $M := \{m_1,m_2,m_3\}$ und $P := \{m_2,m_3\}$. Dann entspricht 
+$P$ der binären Folge $011$. Der leeren Menge $P := \emptyset$ entspricht die
+binäre Folge $000$ und der Ausgangsmenge $P = M$ entspricht die binäre Folge $111$.
+Es ergibt sich also die Frage, wie viele eindeutige binäre Folgen der Länge $n$
+es gibt.
+Da es für jedes Element der Folge zwei mögliche Zustände gibt, ergeben sich $n$
+Faktoren $2 \cdot 2 \cdots 2$, also $2^n$.
+$\hfill\Box$
+
+In den obigen Beispielen haben wir die Fälle 
+
+* $|M_0| = 0 \Rightarrow |\mathcal{P}(M_0)| = 2^0 = 1$
+* $|M_1| = 1 \Rightarrow |\mathcal{P}(M_1)| = 2^1 = 2$
+* $|M_2| = 2 \Rightarrow |\mathcal{P}(M_2)| = 2^2 = 4$
+* $|M_3| = 3 \Rightarrow |\mathcal{P}(M_3)| = 2^3 = 8$ 
+
+#  
+\large
+\setstretch{3}
+
+Grundlegende Definitionen
+
+**Verknüpfungen**
+
+Spezielle Mengen
+
+Selbstkontrollfragen
+
+# Verknüpfungen
+\footnotesize
+\begin{definition}[Mengenoperationen]
+\justifying
+$M$ und $N$ seien zwei Mengen.
+
+\begin{itemize}
+\item Die \textit{Vereinigung von $M$ und $N$} ist definiert als die Menge
+\begin{equation}
+M \cup N := \{x | x \in M \lor x \in N\},
+\end{equation}
+wobei $\lor$ gemäß der Definition der Disjunktion als \textit{nicht-exklusives
+oder}, also als und/oder, zu verstehen ist.
+
+\item Der \textit{Durchschnitt von $M$ und $N$} ist definiert als die Menge
+\begin{equation}
+M \cap N := \{x | x \in M \land x \in N\}.
+\end{equation}
+Wenn für $M$ und $N$ gilt, dass $M \cap N = \emptyset$, dann heißen $M$ und $N$
+\textit{disjunkt}.
+
+\item Die \textit{Differenz von $M$ und $N$} ist definiert als die Menge
+\begin{equation}
+M\setminus N := \{x | x \in M \land x \notin N\}.
+\end{equation}
+
+\item Die \textit{symmetrische Differenz von $M$ und $N$} ist definiert als die
+Menge
+\begin{equation}
+M \Delta N := \{x|(x \in M \lor x \in N) \land x \notin M \cap N\}.
+\end{equation}
+Die symmetrische Differenz kann also als \textit{exklusives oder} verstanden
+werden.
+\end{itemize}
+\end{definition}
+
+# Verknüpfungen
+Beispiel
+\setstretch{2.5}
+
+Für $M := \{1,2,3\}$ und $N := \{2,3,4,5\}$ gelten
+
+* $M \cup N = \{1,2,3,4,5\}$
+* $M \cap N = \{2,3\}$
+* $M \setminus N = \{1\}$
+* $N \setminus M = \{4,5\}$
+* $M \Delta N = \{1,4,5\}$ 
+
+# Verknüpfungen
+Beispiel
+\center
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-mengenoperationen.pdf")
+```
+
+# Verknüpfungen
+\small
+\begin{definition}[Komplement]
+\justifying
+$M$ und $O$ seien Mengen mit $M \subseteq O$. Dann heißt die Menge
+\begin{equation}
+M^c := O \setminus M = \{x|x \in O \land x \notin M\}
+\end{equation}
+das \textit{Komplement von $M$ bezüglich $O$}.
+\end{definition}
+
+\footnotesize
+Bemerkungen
+
+* Das Komplement entspricht der Differenz zweier Mengen, wenn eine Obermenge der anderen ist.
+* Man nennt die Differenz auch *relatives Komplement* und das Komplement auch *absolutes Komplement*.
+
+\center
+```{r, echo = FALSE, out.width = "30%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-komplement.pdf")
+```
+
+# Verknüpfungen
+\small
+\begin{theorem}[Eigenschaften von Komplementen]
+\justifying
+\normalfont
+$M$ und $O$ seien Mengen mit $M \subseteq O$ und $M^c$ sei das Komplement von
+$M$ bezüglich $O$. Dann gelten
+
+\begin{itemize}
+\item[(1)]  $M^c \cup M = O$
+\item[(2)]  $M^c \cap M = \emptyset$
+\item[(3)]  $\left(M^c\right)^c = M$
+\end{itemize}
+\end{theorem}
+
+\footnotesize
+Bemerkungen
+
+* Die Eigenschaften ergeben sich direkt durch Inspektion obiger Abbildung.
+* Wir verzichten auf einen Beweis.
+
+# Verknüpfungen
+
+\small
+\begin{theorem}[De Morgansche Regeln]
+\justifying
+\normalfont
+$M,N$ und $O$ seien Mengen mit $M\subseteq O$ und $N \subseteq O$. Dann gelten
+
+\begin{itemize}
+\item[(1)] $\left(M \cap N\right)^c = M^c \cup N^c$
+\item[(2)] $\left(M \cup N\right)^c = M^c \cap N^c$
+
+\end{itemize}
+Weiterhin gilt für eine beliebige Indexmenge $I$ und Mengen $M_i \subseteq O$
+für alle $i \in I$, dass
+
+\begin{itemize}
+\item[(3)]  $\left(\cap_{i\in I} M_i\right)^c = \cup_{i\in I} M_i^c$
+\item[(4)]  $\left(\cup_{i\in I} M_i\right)^c = \cap_{i\in I} M_i^c$
+\end{itemize}
+\end{theorem}
+\footnotesize
+Bemerkungen
+
+* Untenstehend beweisen wir exemplarisch Aussage (1).
+* Für Beweise der weiteren Aussagen verweisen wir auf die weiterführende Literatur.
+
+# Verknüpfungen
+\footnotesize
+\underline{Beweis}
+
+\noindent (1) Wir halten zunächst fest, dass
+\begin{equation}
+(M \cap N)^c = O \setminus (M \cap N) \mbox{ und } M^c \cup N^c = (O\setminus M) \cup (O \setminus N).
+\end{equation}
+Um die Gleichheit zu zeigen, zeigen wir in einem ersten Schritt $O \setminus (M \cap N) \subseteq  (O\setminus M) \cup (O \setminus N)$
+und in einem zweiten Schritt $(O\setminus M) \cup (O \setminus N) \subseteq O \setminus (M \cap N)$. Zusammengenommen
+folgt damit dann die Gleichheit der betrachteten Mengen.
+
+*Beweis von $O \setminus (M \cap N) \subseteq  (O\setminus M) \cup (O \setminus N)$*
+
+Es sei $x \in O \setminus (M \cap N)$. Dann gilt $x \in O$ und $x \notin (M \cap N)$ nach Definition.
+Hinsichtlich letzterer Eigenschaft gibt es drei Möglichkeiten. 
+
+1. $x \in M$. Dann folgt $x \notin N$, also ist $x \in O \setminus N$ und damit auch $x \in (O\setminus M) \cup (O \setminus N)$. 
+1. $x \in N$. Dann folgt $x \notin M$, also ist $x \in O \setminus M$ und damit auch $x \in (O\setminus M) \cup (O \setminus N)$. 
+1. $x \notin M$ und $x \notin N$. Dann folgt $x \in O \setminus M$ und $x \in O \setminus N$ und damit auch $x \in (O\setminus M) \cup (O \setminus N)$. 
+
+
+Für ein beliebiges  $x \in O \setminus (M \cap N)$ gilt also auch $x \in (O\setminus M) \cup (O \setminus N)$ und damit gilt 
+$O \setminus (M \cap N) \subseteq  (O\setminus M) \cup (O \setminus N)$.
+
+# Verknüpfungen
+\footnotesize
+\underline{Beweis (fortgeführt)}
+
+*Beweis von $(O\setminus M) \cup (O \setminus N) \subseteq O \setminus (M \cap N)$*
+
+Sei nun $x \in (O\setminus M) \cup (O \setminus N)$. Dann gilt mindestens eine
+der folgenden beiden Aussagen.
+
+1.  $x \in (O\setminus M)$. Dann gilt $x \in O$ und $x \notin M$. Also gilt auch, 
+dass $x \notin M\cap N$, weil die Elemente von $M \cap N$ ja gerade Elemente von $M$ sind. 
+Also ist $x \in O \setminus (M \cap N)$. 
+1.  $x \in (O\setminus N)$. Dann gilt $x \in O$ und $x \notin N$. Also gilt auch, 
+dass $x \notin M\cap N$, weil die Elemente von $M \cap N$ ja gerade Elemente von $N$ sind. 
+Also ist $x \in O \setminus (M \cap N)$. 
+
+Für ein beliebiges $x \in (O\setminus M) \cup (O \setminus N)$ gilt also auch $x \in O \setminus (M \cap N)$
+und damit ist alles gezeigt.
+
+$\hfill\Box$
+
+# Verknüpfungen
+\small
+\begin{definition}[Partition]
+\justifying
+$M$ sei eine Menge und $P := \{N_i\}$ sei eine Menge von Mengen $N_i$ mit
+$i = 1,...,n$,
+sodass gilt
+\begin{equation}
+\left(M = \cup_{i=1}^n N_i\right) \land \left(N_i \cap N_j = \emptyset \mbox{ für } i,j = 1,...,n \mbox{ und } i \neq j \right).
+\end{equation}
+Dann heißt $P$ eine \textit{Partition von $M$}.
+\end{definition}
+\footnotesize
+
+Bemerkung
+
+* $\cup_{i=1}^n N_i$ bezeichnet die Vereinigung von $n$ Mengen $N_1,...,N_n$, also $N_1 \cup N_2 \cup \cdots \cup N_n$.
+* Partitionen sind Mengen disjunkter Teilmengen einer Menge.
+* Partitionen sind in der Regel nicht eindeutig, d. h. es gibt mehr als eine
+Partition einer Menge.
+
+
+# Verknüpfungen
+\small
+
+Beispielpartitionen von $M := \{1,2,3,4,5,6\}$ 
+\vspace{2mm}
+
+\center
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-partitionen.pdf")
+```
+
+#  
+\large
+\setstretch{3}
+
+Grundlegende Definitionen
+
+Verknüpfungen
+
+**Spezielle Mengen**
+
+Selbstkontrollfragen
+
+# Spezielle Mengen
+\small
+\begin{definition}[Zahlenmengen]
+\justifying
+Es bezeichnen
+
+\begin{itemize}
+\item $\mathbb{N}\,\,\, := \{1,2,3,...\}$ die \textit{natürlichen Zahlen},
+\item $\mathbb{N}_n     := \{1,2,3,...,n\}$ die \textit{natürlichen Zahlen der
+Ordnung $n$},
+\item $\mathbb{N}^0     := \mathbb{N} \cup \{0\}$ die \textit{natürlichen
+Zahlen} und null,
+\item $\mathbb{Z}\,\,\, := \{...,-3,-2,-1,0,1,2,3,...\}$ die \textit{ganzen
+Zahlen},
+\item $\mathbb{Q}\,\,\, := \{\frac{p}{q}|p \in \mathbb{Z}, q \in \mathbb{N}\}$
+die \textit{rationalen Zahlen},
+\item $\mathbb{R}\,\,\,$ die \textit{reellen Zahlen} und
+\item $\mathbb{C}\,\,\, := \{a + ib|a,b\in \mathbb{R}, i := \sqrt{-1} \}$ die
+\textit{komplexen Zahlen}.
+\end{itemize}
+\end{definition}
+
+\footnotesize
+Bemerkungen
+
+* $\mathbb{R}$ umfasst die rationalen Zahlen und die irrationalen Zahlen
+$\mathbb{R}\setminus \mathbb{Q}$ wie z. B. $e,\pi$ und $\sqrt{2}$.
+* Es gilt $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$.
+
+
+# Spezielle Mengen
+\vfill
+
+\footnotesize
+*Zur historischen Motivation verschiedener Zahlenmengen*
+
+
+Die Gleichung
+\begin{equation}
+5 + x = 3
+\end{equation}
+hat in $\mathbb{N}^0$ keine Lösung, denn die linke Seite ist dort mindestens
+$5$. In $\mathbb{Z}$ ist sie durch $x = -2$ lösbar.
+
+\vspace{2mm}
+
+Die Gleichung
+\begin{equation}
+2x = 5
+\end{equation}
+hat in $\mathbb{Z}$ keine Lösung, denn die linke Seite ist dort stets gerade.
+In $\mathbb{Q}$ ist sie durch $x = \frac{5}{2}$ lösbar.
+
+\vspace{2mm}
+
+Die Gleichung
+\begin{equation}
+x^2 = 2
+\end{equation}
+hat in $\mathbb{Q}$ keine Lösung, wie wir noch beweisen werden. In
+$\mathbb{R}$ ist sie durch $x = \sqrt{2}$ und $x = -\sqrt{2}$ lösbar.
+
+\vspace{2mm}
+
+Die Gleichung
+\begin{equation}
+x^2 = -1
+\end{equation}
+hat in $\mathbb{R}$ keine Lösung, denn das Quadrat einer reellen Zahl ist
+stets nichtnegativ. In $\mathbb{C}$ ist sie durch $x = i$ und $x = -i$ lösbar.
+
+\vfill
+
+# Spezielle Mengen
+
+\vfill
+\footnotesize
+\begin{theorem}[Irrationalität von $\sqrt{2}$]
+\normalfont 
+\justifying
+Die Quadratwurzel von $2$ ist keine rationale Zahl, $\sqrt{2} \notin \mathbb{Q}$.
+\end{theorem}
+\footnotesize
+Bemerkungen
+
+* Die Quadratwurzel von $2$ ist geometrisch leicht zu konstruieren.
+* Bekanntlich gilt für die Länge der Hypothenuse in einem rechtwinkligen Dreieck $a^2 + b^2 = c^2$.
+* Für $a = b = 1$ gilt also $c = \sqrt{2}$.
+* Die Länge der Diagonalen in unterer Abbildung ist also $\sqrt{2}$.
+* Nach dem Theorem gibt es aber keine Zahl in $\mathbb{Q}$, die diese Länge beschreibt.
+
+```{r, echo = FALSE, out.width = "30%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-wurzel-zwei.pdf")
+```
+\vfill
+
+# Spezielle Mengen
+
+\footnotesize 
+\underline{Beweis}
+
+Mit der Notation für Beweise durch Widerspruch wollen
+wir zeigen, dass für die Aussagen (A) $x = \sqrt{2}$ und (B)
+$x \notin \mathbb{Q}$ die Implikation $A \Rightarrow B$ gilt. Wir zeigen dies
+nach @abbott2015 [Kapitel 1] durch einen Beweis durch Widerspruch. Dazu zeigen
+wir, dass die Annahme $(\neg B) \land A$ zu einer falschen Aussage führt.
+
+Die Aussage $\neg B$ lautet im vorliegenden Fall $x \in \mathbb{Q}$. Es gibt
+also $p, q \in \mathbb{Z}$ mit $q \neq 0$, sodass
+\begin{equation}
+x = \frac{p}{q}
+\end{equation}
+gilt. Ohne Einschränkung wählen wir diese Darstellung vollständig gekürzt,
+sodass $p$ und $q$ teilerfremd sind. Andernfalls könnten Zähler und Nenner durch
+einen gemeinsamen ganzzahligen Teiler größer als $1$ gekürzt werden,
+beispielsweise $12/9$ durch den gemeinsamen Teiler $3$ zu $4/3$.
+
+Unter der Annahme $(\neg B) \land A$ gelten zugleich $x = p/q$ und $x^2 = 2$.
+Daher gilt
+\begin{equation}\label{eq-wurzel-zwei-annahme}
+\left(\frac{p}{q}\right)^2 = 2.
+\end{equation}
+Umformung von Gleichung \eqref{eq-wurzel-zwei-annahme} ergibt
+\begin{equation}\label{eq-wurzel-zwei-p-gerade}
+\left(\frac{p}{q}\right)^2 = 2 \Leftrightarrow \frac{p^2}{q^2} = 2 \Leftrightarrow p^2 = 2q^2.
+\end{equation}
+Daraus folgt, dass $p^2$ durch $2$ teilbar und somit gerade ist. Daher muss auch
+$p$ gerade sein, da das Quadrat einer ungeraden ganzen Zahl stets ungerade ist.
+Wir können $p$ also mit einem $r \in \mathbb{Z}$ als $p = 2r$ schreiben.
+
+# Spezielle Mengen
+
+\footnotesize 
+\underline{Beweis (fortgesetzt)}
+
+Einsetzen in die letzte Gleichheit in
+\eqref{eq-wurzel-zwei-p-gerade} ergibt
+\begin{equation}
+p^2 = 2q^2 \Leftrightarrow (2r)^2 = 2q^2 \Leftrightarrow 4r^2 = 2q^2 \Leftrightarrow 2r^2 = q^2.
+\end{equation}
+Die letzte Gleichheit zeigt, dass $q^2$ gerade ist. Folglich ist auch $q$
+gerade. Damit sind sowohl $p$ als auch $q$ durch $2$ teilbar. Dies widerspricht
+der Annahme, dass $p$ und $q$ teilerfremd sind.
+
+Damit führt die Annahme $(\neg B) \land A$ zu einem Widerspruch. Sie ist also
+falsch. Folglich gilt
+\begin{equation}
+x = \sqrt{2} \Rightarrow x \notin \mathbb{Q}.
+\end{equation}
+Damit ist gezeigt, dass $\sqrt{2}$ keine rationale Zahl ist.
+
+$\hfill\Box$
+
+
+# Spezielle Mengen
+\small
+\begin{definition}[Intervalle]
+\justifying
+Zusammenhängende Teilmengen der reellen Zahlen heißen \textit{Intervalle}.
+Für $a,b\in \mathbb{R}$ unterscheidet man
+
+\begin{itemize}
+\item das \textit{abgeschlossene Intervall}
+\begin{equation}
+[a,b] := \{x \in \mathbb{R}|a \le x \le b\},
+\end{equation}
+\item das \textit{offene Intervall}
+\begin{equation}
+]a,b[ := \{x \in \mathbb{R}|a < x < b\},
+\end{equation}
+\item und die \textit{halboffenen Intervalle}
+\begin{equation}
+]a,b] := \{x \in \mathbb{R}| a < x \le b\} \mbox{ und }
+[a,b[ := \{x \in \mathbb{R}| a \le x < b\}.
+\end{equation}
+\end{itemize}
+\end{definition}
+
+\footnotesize
+Bemerkungen
+
+* Positiv Unendlich ($\infty$) und negativ Unendlich ($-\infty$) sind keine Elemente von $\mathbb{R}$.
+* Es gilt also immer $]-\infty,b]$ oder $]-\infty,b[$   bzw. $]a,\infty[$  oder $[a,\infty[$, sowie $\mathbb{R} = ]-\infty, \infty[$.
+
+# Spezielle Mengen
+Beispiele
+\center
+```{r, echo = FALSE, out.width = "60%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-intervalle.pdf")
+```
+
+\footnotesize
+Der schwarze Punkt signalisiert, dass die entsprechende Zahl Teil des Intervalls ist.
+
+# Spezielle Mengen
+\footnotesize
+\begin{definition}[Kartesische Produkte]
+\justifying
+$M$ und $N$ seien zwei Mengen. Dann ist das \textit{Kartesische Produkt der
+Mengen $M$
+und $N$} die Menge aller geordneten Tupel $(m,n)$ mit $m \in M$ und $n \in N$,
+formal
+\begin{equation}
+M \times N := \{(m,n)|m\in M, n \in N \}.
+\end{equation}
+
+Das Kartesische Produkt einer Menge $M$ mit sich selbst wird bezeichnet mit
+\begin{equation}
+M^2 := M \times M.
+\end{equation}
+Seien weiterhin $M_1, M_2, ..., M_n$ Mengen. Dann ist das \textit{Kartesische
+Produkt
+der Mengen $M_1,...,M_n$} die Menge aller geordneten $n$-Tupel $(m_1,...,m_n)$
+mit $m_i \in M_i$ für $i = 1,...,n$, formal
+\begin{equation}
+\prod_{i=1}^n M_i := M_1 \times \cdots \times M_n := \{(m_1,...,m_n)
+                |m_i \in M_i \mbox{ für } i = 1,...,n\}.
+\end{equation}
+Das $n$-fache Kartesische Produkt einer Menge $M$ mit sich selbst wird
+bezeichnet mit
+\begin{equation}
+M^n := \prod_{i=1}^n M := \{(m_1,...,m_n)|m_i \in M \mbox{ für } i = 1,...,n\}.
+\end{equation}
+\end{definition}
+
+\footnotesize
+Bemerkungen
+
+* Mengen sind ungeordnet, Zahlentupel sind geordnet.
+* Es gilt also zum Beispiel $\{1,2\} = \{2,1\}$, aber $(1,2)\neq (2,1)$.
+
+# Spezielle Mengen
+
+Beispiel 
+
+\small
+
+Es seien $M := \{1,2\}$ und $N := \{1,2,3\}$. Dann sind
+\begin{equation}
+M \times N := \{(1,1), (1,2), (1,3), (2,1), (2,2), (2,3)\}
+\end{equation}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+$(m,n)$  & $n = 1$  & $n = 2$  & $n = 3$  \\\hline  
+$m = 1$  & $(1,1)$  & $(1,2)$  & $(1,3)$  \\  
+$m = 2$  & $(2,1)$  & $(2,2)$  & $(2,3)$  \\
+\end{tabular}
+\end{center}
+und 
+\begin{equation}
+N \times M := \{(1,1), (1,2), (2,1), (2,2), (3,1), (3,2)\}
+\end{equation}
+\begin{center}
+\begin{tabular}{c|c|c}
+ $(n,m)$  & $m = 1$  & $m = 2$  \\\hline
+ $n = 1$  & $(1,1)$  & $(1,2)$  \\  
+ $n = 2$  & $(2,1)$  & $(2,2)$  \\ 
+ $n = 3$  & $(3,1)$  & $(3,2)$  \\ 
+\end{tabular}
+\end{center}
+
+$\Rightarrow  M \times N \neq N \times M$
+
+$\Rightarrow$ Das Kartesische Produkt ist im Allgemeinen nicht kommutativ   
+
+
+# Spezielle Mengen
+\small
+\begin{definition}[Menge der reellen Tupel $n$-ter Ordnung]
+\justifying
+Das $n$-fache Kartesische Produkt der reellen Zahlen mit sich selbst wird
+bezeichnet mit
+\begin{equation}
+\mathbb{R}^n := \prod_{i=1}^n \mathbb{R} := \{x := (x_1,...,x_n)|x_i \in \mathbb{R}\}
+\end{equation}
+und wird ``$\mathbb{R}$ hoch $n$'' gesprochen. Wir schreiben die Elemente von
+$\mathbb{R}^n$ als Spalten
+\begin{equation}
+x :=
+\begin{pmatrix}
+x_1
+\\
+\vdots
+\\
+x_n
+\end{pmatrix}
+\end{equation}
+und nennen sie \textit{$n$-dimensionale Vektoren}. Zur Abgrenzung nennen wir die
+Elemente von $\mathbb{R}^1 = \mathbb{R}$ auch \textit{Skalare}.
+\end{definition}
+
+
+\footnotesize
+Bemerkungen
+
+* Ein Beispiel für $x \in \mathbb{R}^4$ ist $x = \begin{pmatrix} 0.16 \\ 1.76 \\ 0.23 \\ 7.10 \end{pmatrix}$.
+
+# Spezielle Mengen
+\small
+Beispiele
+\vspace{2mm}
+\center
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("2-Abbildungen/magl-2-rhochn.pdf")
+```
+
+#  
+\large
+\setstretch{3}
+
+Grundlegende Definitionen
+
+Verknüpfungen
+
+Spezielle Mengen
+
+**Selbstkontrollfragen**
+
+# Selbstkontrollfragen 
+\footnotesize
+\setstretch{2.3}
+
+1. Geben Sie die Definition einer Menge nach Cantor (1895) wieder.
+1. Nennen Sie drei Möglichkeiten zur Definition einer Menge.
+1. Erläutern Sie die Ausdrücke $m \in M$ und  $m \notin M$. 
+1. Erläutern Sie die Ausdrücke $M \subseteq N, M \subset N$ für zwei Mengen $M$ und $N$. 
+1. Geben Sie die Definition der Kardinalität einer Menge wieder.
+1. Geben Sie die Definition der Potenzmenge einer Menge wieder.
+1. Es sei $M := \{1,2\}$. Bestimmen Sie $\mathcal{P}(M)$.
+1. Es seien $M := \{1,2\}, N := \{1,4,5\}$. Bestimmen Sie $M \cup N, M \cap N, M\setminus N, M \Delta N$.
+1. Erläutern Sie die Symbole $\mathbb{N}$, $\mathbb{N}_n$ und $\mathbb{N}^0$.
+1. Erläutern Sie die Unterschiede zwischen $\mathbb{N}$ und $\mathbb{Z}$ und zwischen $\mathbb{R}$ und $\mathbb{Q}$.
+1. Geben Sie die Definition abgeschlossener, offener und halboffener Intervalle
+wieder.
+1. Es seien $M$ und $N$ Mengen. Erläutern Sie die Notation $M \times N$.
+1. Geben Sie die Definition von $\mathbb{R}^n$ wieder.
+
+
+
+# Selbstkontrollfragen 
+\footnotesize
+\setstretch{2}
+
+1. Siehe Definition (Mengen).
+1. Siehe Definition (Mengen).
+1. Siehe Definition (Mengen).
+1. Siehe Definition (Teilmengen und Mengengleichheit).
+1. Siehe Definition (Kardinalität).
+1. Siehe Definition (Potenzmenge). 
+1. Es gilt $\mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+1. Es gelten $M \cup N = \{1,2,4,5\}$, $M \cap N = \{1\}$,  $M \setminus N = \{2\}$, $M \Delta N = \{2,4,5\}$
+1. $\mathbb{N}$ bezeichnet die natürlichen Zahlen, also $1,2,...$.
+$\mathbb{N}_n$ bezeichnet die natürlichen Zahlen bis und inklusive $n$, also
+$1,2,...,n$. $\mathbb{N}^0$ bezeichnet die natürlichen Zahlen und null, also
+$0,1,2,...$.
+1. $\mathbb{Z}$ enthält die negativen natürlichen Zahlen und die Null, $\mathbb{N}$ nicht. $\mathbb{R}$ enthält neben den rationalen Zahlen $\mathbb{Q}$ auch diejenigen Zahlen, die sich nicht als rationale Zahl darstellen lassen, wie zum Beispiel die Kreiszahl $\pi$.
+1. Siehe Definition (Intervalle).
+1. Siehe Definition (Kartesische Produkte).
+1. Siehe Definition (Menge der reellen Tupel $n$-ter Ordnung).

@@ -1,0 +1,1355 @@
+---
+fontsize: 8pt
+format:
+    beamer:
+        include-in-header: "7-Header.tex"
+        keep-tex: false
+bibliography: 7-Referenzen.bib
+---
+
+#  {.plain}
+
+\center
+```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-otto.png")
+```
+\vspace{1mm}
+\huge
+Mathematische Grundlagen
+\vspace{4mm}
+
+\normalsize
+BSc Psychologie | MSc Psychologie | MSc Klinische Psychologie und Psychotherapie
+
+MSc Umweltpsychologie/Mensch-Technik-Interaktion 
+ 
+\vspace{4mm}
+\setstretch{1.4}
+
+\Large
+WiSe 2026/27
+
+\vspace{3mm}
+\normalsize
+Prof. Dr. Dirk Ostwald
+
+#  {.plain}
+\vfill
+\center
+\huge
+\textcolor{black}{(7) Integralrechnung}
+\vfill
+
+# Integralrechnung
+\setstretch{2}
+\small
+Übersicht
+
+* \footnotesize \justifying Integrale kommen in der probabilistischen Datenanalyse an
+vielen Stellen vor:
+    * \footnotesize WDF Definition und Berechnen von Wahrscheinlichkeiten aus WDF
+    * Beziehung von WDF und KVF
+    * Erwartungswerte inklusive Varianz und Kovarianz
+    * u.v.a.m.
+
+* Ziel hier ist es, zentrale Begriffe der Integralrechnung zu wiederholen.
+* In der Schule wird üblicherweise das *Riemannintegral* betrachtet.
+* Zentrale Begriffe dabei sind *Stammfunktion*, *unbestimmtes Integral*,
+*bestimmtes Integral*, *Hauptsätze der Differenzial- und Integralrechnung*, 
+*uneigentliches Integral* und *mehrdimensionales Integral*.
+* Der Fokus liegt auf der Klärung von Begriffen und Symbolen, nicht dem Rechnen.
+
+#
+\large
+\setstretch{2.5}
+Unbestimmte Integrale
+
+Bestimmte Integrale
+
+Uneigentliche Integrale
+
+Mehrdimensionale Integrale
+
+Selbstkontrollfragen
+
+#
+\large
+\setstretch{2.5}
+**Unbestimmte Integrale**
+
+Bestimmte Integrale
+
+Uneigentliche Integrale
+
+Mehrdimensionale Integrale
+
+Selbstkontrollfragen
+
+
+# Unbestimmte Integrale
+\footnotesize
+\begin{definition}[Unbestimmtes Integral und Stammfunktion]
+\normalfont
+\justifying
+Es sei $I \subseteq \mathbb{R}$ ein offenes Intervall und
+$f : I \to \mathbb{R}$ eine Funktion. Eine differenzierbare Funktion
+$F : I \to \mathbb{R}$ heißt \textit{Stammfunktion von $f$}, wenn $F' = f$ gilt.
+Ist $F$ eine Stammfunktion von $f$, so heißt die Menge aller Stammfunktionen
+\begin{equation}
+\{F + c | c \in \mathbb{R}\}
+\end{equation}
+das \textit{unbestimmte Integral von $f$}. Man schreibt dafür auch
+\begin{equation}
+\int f(x)\,dx = F(x) + c, \mbox{ mit } c \in \mathbb{R}.
+\end{equation}
+Dabei heißt $c$ \textit{Integrationskonstante} und $f(x)$ \textit{Integrand}.
+\end{definition}
+
+\footnotesize
+Bemerkungen
+
+* Die Ableitung der Stammfunktion $F$ von $f$ ist $f$.
+* Das unbestimmte Integral ist die Gesamtheit aller Stammfunktionen von $f$.
+* Die Konstante $c \in \mathbb{R}$ heißt \textit{Integrationskonstante}, es gilt
+$\frac{d}{dx}c = 0$.
+* Der Ausdruck $\int f(x) \,dx$ ist als $F(x) + c$ definiert.
+* In $\int f(x) \,dx$ haben $\int$ und $\,dx$ keine eigentliche Bedeutung,
+$f(x)$ heißt \textit{Integrand}.
+
+
+# Unbestimmte Integrale
+\footnotesize
+\begin{theorem}[Stammfunktionen elementarer Funktionen]
+\normalfont
+\justifying
+Für $k \in \mathbb{N}_0$ und reelle Koeffizienten $a_0,\ldots,a_k,a,b$
+sind folgende Funktionen jeweils Stammfunktionen. Die Definitionsmenge ist
+$\mathbb{R}$, bei der Logarithmusfunktion $]0,\infty[$.
+\vspace{1mm}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{lll}
+Name & Funktion & Stammfunktion \\\hline
+Polynomfunktion & $f(x) := \sum_{i = 0}^k a_i x^i$ & $F(x) = \sum_{i = 0}^k \frac{a_i}{i+1}x^{i+1}$ \\
+Konstante Funktion & $f(x) := a$ & $F(x) = ax$ \\
+Identitätsfunktion & $f(x) := x$ & $F(x) = \frac{1}{2}x^2$ \\
+Linear-affine Funktion & $f(x) := ax + b$ & $F(x) = \frac{1}{2}ax^2 + bx$ \\
+Quadratfunktion & $f(x) := x^2$ & $F(x) = \frac{1}{3}x^3$ \\
+Exponentialfunktion & $f(x) := \exp(x)$ & $F(x) = \exp(x)$ \\
+Logarithmusfunktion & $f(x) := \ln(x)$ & $F(x) = x\ln(x) - x$ \\
+\end{tabular}
+\end{center}
+\end{theorem}
+Bemerkung
+
+* Beweise ergeben sich direkt durch Ableiten der Stammfunktionen.
+
+# Unbestimmte Integrale
+\footnotesize
+\begin{theorem}[Rechenregeln für Stammfunktionen]
+\normalfont
+\justifying
+Es seien $I,J \subseteq \mathbb{R}$ offene Intervalle. Die folgenden
+Gleichheiten unbestimmter Integrale gelten bis auf additive Konstanten.
+\vspace{2mm}
+
+(Summenregel) Besitzen $f,g : I \to \mathbb{R}$ Stammfunktionen, so gilt
+für $a,b \in \mathbb{R}$
+\begin{equation}
+\int (af(x) + bg(x))\,dx = a\int f(x)\,dx + b\int g(x)\,dx.
+\end{equation}
+(Partielle Integration) Für stetig differenzierbare Funktionen
+$f,g : I \to \mathbb{R}$ gilt
+\begin{equation}
+\int f'(x)g(x)\,dx = f(x)g(x) - \int f(x)g'(x)\,dx.
+\end{equation}
+(Substitutionsregel) Besitzt $f : J \to \mathbb{R}$ eine Stammfunktion
+$F$ und ist $g : I \to J$ differenzierbar, so gilt
+\begin{equation}
+\int f(g(x))g'(x)\,dx = F(g(x)) + c, \mbox{ mit } c \in \mathbb{R}.
+\end{equation}
+\end{theorem}
+
+# Unbestimmte Integrale
+\footnotesize
+\underline{Beweis}
+
+Wir beweisen die Rechenregeln für Stammfunktionen mithilfe der Ableitungsregeln.
+Dazu leiten wir jeweils die rechte Seite der Gleichung ab und zeigen, dass die Ableitung dem Integranden auf der linken Seite entspricht.
+
+(Summenregel) Es seien
+\begin{equation}
+F := \int f(x)\,dx \mbox{ und } G := \int g(x)\,dx
+\end{equation}
+Stammfunktionen von $f$ und $g$. Dann gilt mit der Summenregel der Ableitung
+\begin{equation}
+(aF + bG)' = af + bg
+\Leftrightarrow
+\int (af(x) + bg(x))\,dx = a\int f(x)\,dx + b\int g(x)\,dx.
+\end{equation}
+(Partielle Integration) Es sei
+\begin{equation}
+H := \int f(x)g'(x)\,dx
+\end{equation}
+eine Stammfunktion von $fg'$. Dann folgt aus der Summenregel und der Produktregel der Ableitung     
+\begin{equation}
+(fg - H)' = f'g + fg' - fg' = f'g
+\Leftrightarrow
+\int f'(x)g(x)\,dx = f(x)g(x) - \int f(x)g'(x)\,dx,
+\end{equation}
+d.h. $f(x)g(x) - \int f(x)g'(x)\,dx$ ist eine Stammfunktion von $f'(x)g(x)$.
+
+(Substitutionsregel) Für die Substitutionsregel liefert die Kettenregel
+\begin{equation}
+(F(g(x)))' = F'(g(x))g'(x) = f(g(x))g'(x).
+\end{equation}
+Damit ist $F(g(x))$ eine Stammfunktion von $f(g(x))g'(x)$ und dies beweist die Substitutionsregel. 
+$\hfill \Box$
+ 
+
+#
+\large
+\setstretch{2.5}
+Unbestimmte Integrale
+
+**Bestimmte Integrale**
+
+Uneigentliche Integrale
+
+Mehrdimensionale Integrale
+
+Selbstkontrollfragen
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Bestimmtes Integral von $f : [a,b] \to \mathbb{R}$
+\par\vspace{1mm}
+
+```{r, echo = F, eval = F}
+graphics.off()
+
+library(latex2exp)
+par(
+family      = "sans",
+mfcol       = c(1,3),
+pty         = "m",
+bty         = "l",
+lwd         = 1,
+las         = 1,
+mgp         = c(2,1,0),
+xaxs        = "i",
+yaxs        = "i",
+font.main   = 1,
+cex         = 0.6,
+cex.main    = 0.8)
+
+# f(x) und \int_a^b f(x)\,dx
+x           = seq(-4,4,length=1e4)
+fx          = dnorm(x)
+a           = -1
+b           = 1
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(0,.4))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+text(a+.4  , .03, TeX("$a$") , xpd = TRUE, cex = 1.2)
+text(b-.4  , .034, TeX("$b$") , xpd = TRUE, cex = 1.2)
+
+# f(x) und \int_a^b f(x)\,dx
+x           = seq(-4,4,length=1e4)
+fx          = dnorm(x)
+a           = -2
+b           = 2
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(0,.4))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+text(a+.5   , .03, TeX("$a$") , xpd = TRUE, cex = 1.2)
+text(b-.5   , .034, TeX("$b$") , xpd = TRUE, cex = 1.2)
+
+# f(x) und \int_a^b f(x)\,dx
+x           = seq(0,2*pi,length=1e4)
+fx          = sin(x)
+a           = 0
+b           = 2*pi
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(-1,1))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+text(.4     , -.1, TeX("$a$") , xpd = TRUE, cex = 1.2)
+text(2*pi-.4, -.1, TeX("$b$") , xpd = TRUE, cex = 1.2)
+
+dev.copy2pdf(
+file        = "./7-Abbildungen/magl-7-bestimmtes-integral.pdf",
+width       = 8,
+height      = 3)
+```
+
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-bestimmtes-integral.pdf")
+```
+
+#  Bestimmte Integrale
+\footnotesize
+\begin{definition}[Zerlegung eines Intervalls und Feinheit]
+\normalfont
+\justifying
+Es seien $a,b \in \mathbb{R}$ mit $a < b$ und $n \in \mathbb{N}$.
+Punkte $x_0,\ldots,x_n$ mit
+\begin{equation}
+a = x_0 < x_1 < \cdots < x_n = b
+\end{equation}
+definieren eine \textit{Zerlegung} $Z := (x_0,\ldots,x_n)$ des Intervalls
+$[a,b]$.
+Die zugehörigen Teilintervalle sind $[x_{i-1},x_i]$ mit Längen
+\begin{equation}
+\Delta x_i := x_i - x_{i-1}, \mbox{ für } i \in \{1,\ldots,n\}.
+\end{equation}
+Die größte Teilintervalllänge
+\begin{equation}
+\delta(Z) := \max_{1 \le i \le n} \Delta x_i
+\end{equation}
+heißt \textit{Feinheit der Zerlegung $Z$}.
+\end{definition}
+
+Bemerkung
+
+* $\Delta x_i$ ist die Breite der Streifen in untenstehender Abbildung.
+
+
+#  Bestimmte Integrale
+\footnotesize
+\begin{definition}[Riemannsche Summen]
+\normalfont
+\justifying
+Es sei $f : [a,b] \to \mathbb{R}$ beschränkt. Es existiere also ein
+$c > 0$ mit $|f(x)| \le c$ für alle $x \in [a,b]$.
+Es sei $Z := (x_0,\ldots,x_n)$ eine Zerlegung von $[a,b]$ und
+$\xi := (\xi_1,\ldots,\xi_n)$ eine Wahl von Zwischenpunkten mit
+$\xi_i \in [x_{i-1},x_i] $ für $i \in \{1,\ldots,n\}$. Dann heißt
+\begin{equation}
+R(f,Z,\xi) := \sum_{i = 1}^n f(\xi_i)\Delta x_i
+\end{equation}
+\textit{Riemannsche Summe von $f$ bezüglich der Zerlegung $Z$ und der
+Zwischenpunkte $\xi$}.
+\end{definition}
+Bemerkungen
+
+* $|x|$ bezeichnet den *Betrag* von $x \in \mathbb{R}$.
+* Die Obersumme verwendet auf jedem Teilintervall das Supremum von $f$.
+* Die Untersumme verwendet auf jedem Teilintervall das Infimum von $f$.
+* Bei stetigem $f$ sind dies Maximum und Minimum auf dem Teilintervall.
+* Für Riemann-integrierbares $f$ geht die Differenz zwischen Ober- und
+Untersumme bei $\delta(Z) \to 0$ gegen null.
+
+
+#  Bestimmte Integrale 
+\vspace{2mm}
+\small
+Zerlegung und Riemannsche Ober- und Untersummen für $f : [a,b] \to \mathbb{R}$
+\par\vspace{1mm}
+
+```{r, echo = F, eval = F}
+library(latex2exp)
+pdf(
+"7-Abbildungen/magl-7-riemann-summen.pdf",
+width       = 8,
+height      = 5)
+par(
+mar         = c(2, 1, 1, 1),
+family      = "sans",
+las         = 1)
+
+x           = seq(0, 4, length.out = 1000)
+fx          = 5*dnorm(x, 0.5) + 1
+pts         = seq(0, 4, length.out = 7)
+lft         = head(pts, -1)
+rgt         = tail(pts, -1)
+low         = pmin(5*dnorm(lft, 0.5) + 1, 5*dnorm(rgt, 0.5) + 1)
+arg         = pmax(lft, pmin(0.5, rgt))
+upp         = 5*dnorm(arg, 0.5) + 1
+lab         = c("$a = x_0$", paste0("$x_", 1:5, "$"), "$x_6 = b$")
+
+plot(
+x,
+fx,
+type        = "n",
+xlim        = c(-0.5, 4.5),
+ylim        = c(-0.45, 3.3),
+axes        = FALSE,
+xlab        = "",
+ylab        = "")
+
+rect(
+lft,
+0,
+rgt,
+low,
+col         = "gray85")
+
+rect(
+lft,
+low,
+rgt,
+upp,
+col         = "gray95")
+
+lines(x, fx, lwd = 1.5)
+segments(-0.1, 0, 4.2, 0)
+segments(-0.1, 0, -0.1, 3.2)
+
+text(pts, -0.22, TeX(lab), cex = 1.3)
+text(2.3, 2, TeX("$f(x)$"), cex = 1.7)
+
+dev.off()
+```
+
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-riemann-summen.pdf")
+```
+
+# Bestimmte Integrale
+\footnotesize
+\begin{definition}[Bestimmtes Riemannsches Integral]
+\normalfont
+\justifying
+Es sei $f : [a,b] \to \mathbb{R}$ beschränkt. Die Funktion $f$ heißt
+\textit{Riemann-integrierbar}, wenn eine Zahl $L \in \mathbb{R}$ existiert, sodass
+für jede Folge von Zerlegungen $Z_k := (x_{k,0},\ldots,x_{k,n_k})$ mit
+$\delta(Z_k) \to 0$ und jede Wahl von Zwischenpunkten
+$\xi_{k,i} \in [x_{k,i-1},x_{k,i}]$ gilt, dass
+\begin{equation}
+\lim_{k \to \infty} R(f,Z_k,\xi_k) = L.
+\end{equation}
+Die Zahl $L$ heißt \textit{bestimmtes Riemannsches Integral von $f$} und wird
+mit
+\begin{equation}
+\int_a^b f(x)\,dx := L
+\end{equation}
+bezeichnet. Dabei heißen $a$ und $b$ \textit{untere} beziehungsweise
+\textit{obere
+Integrationsgrenze}, $f(x)$ \textit{Integrand} und $x$
+\textit{Integrationsvariable}.
+\end{definition}
+
+Bemerkungen
+
+* Für $f > 0$ ist $\int_a^b f(x)\,dx$ der Flächeninhalt zwischen dem Graphen von
+$f$ und der $x$-Achse.
+* Generell ist $\int_a^b f(x)\,dx$ der vorzeichenbehaftete Flächeninhalt
+zwischen dem Graphen von $f$ und der $x$-Achse.
+* Positive und negative Flächeninhalte gleichen einander aus.
+* Der Mittelwert von $f$ auf $[a,b]$ ist $\frac{1}{b-a}\int_a^b f(x)\,dx$.
+
+
+#  Bestimmte Integrale
+\footnotesize
+\begin{theorem}[Rechenregeln für bestimmte Integrale]
+\normalfont
+\justifying
+Es seien $a < b$ und $f,g : [a,b] \to \mathbb{R}$ Riemann-integrierbar.
+Dann gelten folgende Rechenregeln.
+\vspace{1mm}
+
+(Linearität) Für $c_1,c_2 \in \mathbb{R}$ gilt
+\begin{equation}
+\int_a^b (c_1f(x) + c_2g(x))\,dx = c_1\int_a^b f(x)\,dx + c_2\int_a^b g(x)\,dx.
+\end{equation}
+(Additivität) Für $a < c < b$ gilt
+\begin{equation}
+\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx.
+\end{equation}
+(Orientierung) Man setzt
+\begin{equation}
+\int_a^a f(x)\,dx := 0 \mbox{ und } \int_b^a f(x)\,dx := -\int_a^b f(x)\,dx.
+\end{equation}
+(Integrationsvariable) Es gilt
+\begin{equation}
+\int_a^b f(x)\,dx = \int_a^b f(y)\,dy.
+\end{equation}
+\end{theorem}
+
+Bemerkung
+
+* Für Beweise verweisen wir auf die weiterführende Literatur.
+* Intuitionen zu Linearität, Additivität und Orientierung geben die folgenden
+Abbildungen.
+
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Linearität
+\par\vspace{1mm}
+
+```{r, echo = F, eval = F}
+library(latex2exp)
+pdf(
+file        = "7-Abbildungen/magl-7-integral-linearitaet.pdf",
+width       = 10,
+height      = 3.8)
+par(
+mfrow       = c(1,3),
+mar         = c(1,1,2,1),
+family      = "sans",
+las         = 1,
+font.main   = 1)
+
+# Gewichtete Funktionen auf demselben Intervall
+x           = seq(0,4,length.out = 1000)
+fx          = 5*dnorm(x,0.5) + 1
+gx          = 0.4 + x/4
+c1          = 1.3
+c2          = 1.2
+cf          = c1*fx
+cg          = c2*gx
+val         = cbind(cf,cg,cf + cg)
+ttl         = c("$c_1f(x)$","$c_2g(x)$","$c_1f(x) + c_2g(x)$")
+
+# Einzelne Flächen und ihre Summe bei gleicher Achsenskalierung
+for (idx in 1:3) {
+    plot(
+    x,
+    val[,idx],
+    type    = "n",
+    xlim    = c(-0.3,4.3),
+    ylim    = c(-0.9,5),
+    axes    = FALSE,
+    xlab    = "",
+    ylab    = "",
+    main    = TeX(ttl[idx]))
+    if (idx == 1) {
+        polygon(
+        c(x,rev(x)),
+        c(cf,rep(0,length(x))),
+        col    = "gray80")
+    }
+    if (idx == 2) {
+        polygon(
+        c(x,rev(x)),
+        c(cg,rep(0,length(x))),
+        col    = "gray95")
+    }
+    if (idx == 3) {
+        polygon(
+        c(x,rev(x)),
+        c(cf,rep(0,length(x))),
+        col    = "gray80")
+        polygon(
+        c(x,rev(x)),
+        c(cf + cg,rev(cf)),
+        col    = "gray95")
+        lines(x,cf,lty = 2)
+    }
+
+    if (idx == 1) {
+        lines(x,fx,lty = 2,lwd = 1.5)
+        text(1.3,1.95,TeX("$f(x)$"),cex = 1.1)
+    }
+    if (idx == 2) {
+        lines(x,gx,lty = 2,lwd = 1.5)
+        text(3,0.85,TeX("$g(x)$"),cex = 1.1)
+    }
+    lines(x,val[,idx],lwd = 1.5)
+    segments(-0.1,0,4.15,0)
+    segments(-0.1,0,-0.1,4.8)
+    text(0,-0.2,TeX("$a$"),cex = 1.2)
+    text(4,-0.2,TeX("$b$"),cex = 1.2)
+    if (idx == 1) {
+        text(2,0.4,TeX("$A$"),cex = 1.3)
+        text(2,-0.65,TeX("$A = c_1\\int_a^b f(x)\\,dx$"),cex = 0.95)
+    }
+    if (idx == 2) {
+        text(2,0.3,TeX("$B$"),cex = 1.3)
+        text(2,-0.65,TeX("$B = c_2\\int_a^b g(x)\\,dx$"),cex = 0.95)
+    }
+    if (idx == 3) {
+        text(2,0.4,TeX("$A$"),cex = 1.3)
+        text(2,2.7,TeX("$B$"),cex = 1.3)
+        text(2,-0.65,TeX("$A + B$"),cex = 1.1)
+    }
+}
+dev.off()
+```
+
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-integral-linearitaet.pdf")
+```
+
+\vspace{1mm}
+\footnotesize
+* Ein konstanter Faktor skaliert alle Höhen und damit auch das Integral.
+* Beim Addieren der Funktionen addieren sich die Höhen an jeder Stelle.
+* Die beiden Flächen ergeben zusammen die Fläche unter der Summenfunktion.
+
+
+#  Bestimmte Integrale 
+\vspace{2mm}
+\small
+Additivität
+\par\vspace{1mm}
+
+```{r, echo = F, eval = F}
+graphics.off()
+library(latex2exp)
+par(
+family      = "sans",
+pty         = "m",
+bty         = "l",
+lwd         = 1,
+las         = 1,
+mgp         = c(2,1,0),
+xaxs        = "i",
+yaxs        = "i",
+font.main   = 1,
+cex         = 1,
+cex.main    = 1)
+
+# Additivität für f(x) = 5*dnorm(x,0.5) + 1 mit a = 0, c = 1 und b = 2.5
+x           = seq(0,2.5,length=1e4)
+fx          = 5*dnorm(x,0.5) + 1
+a           = 0
+c           = 1
+b           = 2.5
+ai          = min(which(x >= a))
+ci          = max(which(x  < c))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+xlim        = c(-.5,3),
+xaxt        = 'n',
+yaxt        = 'n',
+xlab        = '')
+
+polygon(
+c(x[c(ai, ai:ci, ci)]),
+c(0, fx[ai:ci], 0),
+col         = "gray80")
+
+polygon(
+c(x[c(ci, ci:bi, bi)]),
+c(0, fx[ci:bi], 0),
+col         = "gray90")
+
+text(0  ,1.1, TeX("$a$") , xpd= T, cex = 1.2)
+text(1  ,1.1, TeX("$c$") , xpd= T, cex = 1.2)
+text(2.5,1.1, TeX("$b$") , xpd= T, cex = 1.2)
+
+text(0.5  , 1.6, TeX("$\\int_{a}^{c} f(x)dx$") , xpd= T, cex = 1)
+text(1.5  , 1.6, TeX("$\\int_{c}^{b} f(x)dx$") , xpd= T, cex = 1)
+
+dev.copy2pdf(
+file        = "./7-Abbildungen/magl-7-integral-additivität.pdf",
+width       = 5,
+height      = 3.5)
+```
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-integral-additivität.pdf")
+```
+
+\vspace{1mm}
+\footnotesize
+* Der Punkt $c$ zerlegt das Integrationsintervall in zwei Teilintervalle.
+* Die grauen Teilflächen zeigen die Integrale von $a$ bis $c$ und $c$ bis $b$.
+* Die Summe der beiden Teilintegrale ergibt das Integral von $a$ bis $b$.
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Orientierung
+\par\vspace{1mm}
+
+```{r, echo = FALSE, eval = FALSE}
+library(latex2exp)
+pdf(
+file        = "7-Abbildungen/magl-7-integral-orientierung.pdf",
+width       = 9,
+height      = 4)
+par(
+mfrow       = c(1,2),
+mar         = c(1,1,2,1),
+family      = "sans",
+las         = 1)
+
+# f(x), Zerlegung und Rechteckhöhen
+x           = seq(0,4,length.out = 1000)
+fx          = 5*dnorm(x,0.5) + 1
+pts         = seq(0,4,length.out = 7)
+mid         = (head(pts,-1) + tail(pts,-1))/2
+ht          = 5*dnorm(mid,0.5) + 1
+lab         = c(
+"$a = x_0$",
+"$x_1$",
+"$x_i$",
+"$x_{i+1}$",
+"$x_4$",
+"$x_5$",
+"$x_6 = b$")
+
+# Integration von a nach b und von b nach a
+for (idx in 1:2) {
+    ttl     = if (idx == 1) "$\\int_a^b f(x) dx$" else "$\\int_b^a f(x) dx$"
+    dif     = if (idx == 1) "$x_{i+1} - x_i > 0$" else "$x_i - x_{i+1} < 0$"
+    plot(
+    x,
+    fx,
+    type    = "n",
+    xlim    = c(-0.55,4.55),
+    ylim    = c(-1.2,3.5),
+    axes    = FALSE,
+    xlab    = "",
+    ylab    = "",
+    main    = TeX(ttl))
+    rect(
+    head(pts,-1),
+    0,
+    tail(pts,-1),
+    ht,
+    col     = replace(rep("gray95",6),3,"gray80"))
+    lines(x,fx,lwd = 1.5)
+    segments(-0.15,0,4.2,0)
+    segments(-0.15,0,-0.15,3.2)
+
+
+    text(pts   , -0.2       , TeX(lab)         , cex = 0.95)
+    text(2.7   ,  2.2       , TeX("$f(x)$")    , cex = 1.2)
+    text(mid[3], ht[3] + 0.3, TeX("$f(\\xi)$"))
+    segments(mid[3],0,mid[3],ht[3],lty = 2)
+    points(mid[3],ht[3],pch = 16,cex = 0.65)
+
+
+    for (jdx in 1:6) {
+        beg = if (idx == 1) pts[jdx] else pts[jdx + 1]
+        end = if (idx == 1) pts[jdx + 1] else pts[jdx]
+        col    = if (jdx == 3) "black" else "gray65"
+        arrows(
+        x0     = beg,
+        y0     = -0.5,
+        x1     = end,
+        y1     = -0.5,
+        length = 0.08,
+        col    = col)
+    }
+    text(mid[3],-0.9,TeX(dif),cex = 1.1)
+}
+dev.off()
+```
+
+```{r, echo = FALSE, out.width = "90%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-integral-orientierung.pdf")
+```
+
+\vspace{1mm}
+\footnotesize
+* Dieselben Rechtecke mit selber Höhe $f(\xi)$, aber umgekehrte Schritte:
+* Integration von $a$ nach $b$: $x_{i+1} - x_i > 0$, Integration von $b$ nach $a$: $x_i - x_{i+1} < 0$.
+* Die Summenbeiträge wechseln also ihr Vorzeichen 
+\begin{equation}
+f(\xi)(x_i - x_{i+1}) = -f(\xi)(x_{i+1} - x_i)
+\end{equation}
+
+
+#  Bestimmte Integrale
+\footnotesize
+\begin{theorem}[Mittelwertsatz der Integralrechnung]
+\normalfont
+\justifying
+Es seien $a < b$ und $f : [a,b] \to \mathbb{R}$ stetig.
+Dann existiert ein $\xi \in ]a,b[$ mit
+\begin{equation}
+\int_a^b f(x)\,dx = f(\xi)(b - a).
+\end{equation}
+Der \textit{Mittelwert} von $f$ auf $[a,b]$ ist daher
+\begin{equation}
+\frac{1}{b - a}\int_a^b f(x)\,dx = f(\xi).
+\end{equation}
+\end{theorem}
+Bemerkung
+
+* Statt eines Beweises verweisen wir auf untenstehende graphische Darstellung.
+
+
+```{r, echo = F, eval = F}
+graphics.off()
+library(latex2exp)
+par(
+family      = "sans",
+pty         = "m",
+bty         = "l",
+lwd         = 1,
+las         = 1,
+mgp         = c(2,1,0),
+xaxs        = "i",
+yaxs        = "i",
+font.main   = 1,
+cex         = 1,
+cex.main    = 1)
+
+# f(x) und \int_a^b f(x)\,dx
+x           = seq(0,2*pi,length=1e4)
+fx          = 0.5*sin(x) + 2
+a           = 0
+b           = 2*pi
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(0,3),
+xlim        = c(-1, 2*pi + 1),
+xaxt        = 'n',
+yaxt        = 'n',
+xlab        = '')
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+arrows(
+x0          = 0,
+y0          = 0,
+x1          = 0,
+y1          = 2,
+col         = "black",
+angle       = 0,
+length      = 0,
+lty         = 2)
+
+arrows(
+x0          = 2*pi,
+y0          = 0,
+x1          = 2*pi,
+y1          = 2,
+col         = "black",
+angle       = 0,
+length      = 0,
+lty         = 2)
+
+arrows(
+x0          = -2,
+y0          = 2,
+x1          = 2*pi,
+y1          = 2,
+col         = "black",
+angle       = 0,
+length      = 0,
+lty         = 2)
+text(0     , -.3, TeX("$a$")        , xpd= T, cex = 1.3)
+text(pi    , -.3, TeX("$\\xi$")     , xpd= T, cex = 1.3)
+text(2*pi  , -.3, TeX("$b$")        , xpd= T, cex = 1.3)
+text(-1.5 , 2  , TeX("$f(\\xi)$")   , xpd= T, cex = 1.3)
+dev.copy2pdf(
+file        = "./7-Abbildungen/magl-7-integral-mittelwertsatz.pdf",
+width       = 6,
+height      = 4.5)
+```
+
+
+#  Bestimmte Integrale 
+\vspace{2mm}
+\small
+Mittelwertsatz der Integralrechnung
+\par\vspace{1mm}
+
+```{r, echo = FALSE, out.width = "60%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-integral-mittelwertsatz.pdf")
+```
+
+\vspace{1mm}
+\footnotesize
+* Es existiert ein $\xi \in ]a,b[$ mit
+\begin{equation}
+\int_a^b f(x)\,dx = f(\xi)(b - a).
+\end{equation}
+
+# Bestimmte Integrale
+\footnotesize
+\begin{theorem}[Erster Hauptsatz der Differenzial- und Integralrechnung]
+\normalfont
+\justifying
+Es sei $I \subseteq \mathbb{R}$ ein offenes Intervall,
+$f : I \to \mathbb{R}$ stetig und $a \in I$ fest. Dann ist die Funktion
+\begin{equation}
+F : I \to \mathbb{R}, x \mapsto F(x) := \int_a^x f(t)\,dt
+\end{equation}
+eine Stammfunktion von $f$. Es gilt also $F'(x) = f(x)$ für alle $x \in I$.
+\end{theorem}
+\underline{Beweis}
+
+Es sei $x \in I$ und $h \ne 0$ so klein, dass $x + h \in I$. Additivität und 
+Orientierung des Integrals ergeben für den Newtonschen Differenzenquotienten zunächst
+\begin{equation}
+\frac{1}{h}\left(F(x+h) - F(x)\right) 
+= \frac{1}{h}\left(\int_a^{x+h} f(t)\,dt - \int_a^x f(t)\,dt\right)
+= \frac{1}{h}\int_x^{x+h} f(t)\,dt.
+\end{equation}
+Der Mittelwertsatz der Integralrechnung liefert für positive wie negative $h$ 
+dann einen Punkt $\xi_h$ zwischen $x$ und $x+h$ mit
+\begin{equation}
+\frac{1}{h}\left(F(x+h) - F(x)\right) = \frac{1}{h}\int_x^{x+h} f(t)\,dt = f(\xi_h).
+\end{equation}
+Wegen $|\xi_h - x| \le |h|$ gilt $\xi_h \to x$ für $h \to 0$. Aus der Stetigkeit 
+von $f$ folgt dann
+\begin{equation}
+F'(x) 
+: = \lim_{h \to 0} \frac{1}{h}\left(F(x+h) - F(x)\right)
+= \lim_{h \to 0} f(\xi_h) 
+= f(x).
+\end{equation}
+
+$\hfill \Box$
+
+
+# Bestimmte Integrale
+\footnotesize
+\begin{theorem}[Zweiter Hauptsatz der Differenzial- und Integralrechnung]
+\normalfont
+\justifying
+Es sei $I \subseteq \mathbb{R}$ ein offenes Intervall,
+$f : I \to \mathbb{R}$ stetig und $F$ eine Stammfunktion von $f$.
+Dann gilt für alle $a,b \in I$
+\begin{equation}
+\int_a^b f(x)\,dx = F(b) - F(a) =: F(x)\vert_a^b.
+\end{equation}
+\end{theorem}
+\underline{Beweis}
+
+Wir wählen einen festen Punkt $\alpha \in I$ und setzen
+$H(x) := \int_\alpha^x f(t)\,dt$. Nach dem ersten Hauptsatz ist $H$ eine
+Stammfunktion von $f$. Daher gilt $F = H + c$ für eine Konstante
+$c \in \mathbb{R}$. Bei der Differenz fällt diese Konstante weg:
+\begin{equation}
+F(b) - F(a) = H(b) - H(a) = \int_\alpha^b f(t)\,dt - \int_\alpha^a f(t)\,dt.
+\end{equation}
+Additivität und Orientierung des Integrals ergeben dann
+\begin{equation}
+F(b) - F(a) 
+= \int_\alpha^b f(t)\,dt - \int_\alpha^a f(t)\,dt
+= \int_a^\alpha f(t)\,dt + \int_\alpha^b f(t)\,dt
+= \int_a^b f(t)\,dt 
+= \int_a^b f(x)\,dx.
+\end{equation}
+
+$\hfill \Box$
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Beispiele zum Zweiten Hauptsatz der Differenzial- und Integralrechnung
+\par\vspace{1mm}
+
+```{r, echo = F, eval = F}
+dev.new()
+pdf(
+file        = file.path(
+"./7-Abbildungen/magl-7-bestimmte-integrale-beispiele.pdf"),
+width       = 11,
+height      = 3.5)
+library(latex2exp)
+par(
+family      = "sans",
+mfcol       = c(1,3),
+pty         = "m",
+bty         = "l",
+lwd         = 1,
+las         = 1,
+mgp         = c(2,1,0),
+xaxs        = "i",
+yaxs        = "i",
+font.main   = 1,
+cex         = 0.8,
+cex.main    = 1.2)
+
+# f(x) = x und \int_0^1 f(x)\,dx
+x           = seq(0,1,length=1e4)
+fx          = x
+a           = 0
+b           = 1
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(-0.1, 1.1),
+xlim        = c(-.1,1.1),
+main        = TeX("$\\int_{0}^{1} x\\, dx = 1/2$"))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+
+# f(x) = x^2 und \int_0^1 f(x)\,dx
+x           = seq(0,1,length=1e4)
+fx          = x^2
+a           = 0
+b           = 1
+ai          = min(which(x >= a))
+bi          = max(which(x  < b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(-0.1, 1.1),
+xlim        = c(-.1,1.1),
+main        = TeX("$\\int_{0}^{1} x^2 \\, dx = 1/3$"))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+
+# f(x) = -x + 1 und \int_0^2 f(x)\,dx
+x           = seq(0,2,length=1e4)
+fx          = -x+1
+a           = 0
+b           = 2
+ai          = min(which(x >= a))
+bi          = max(which(x <  b))
+plot(
+x,
+fx,
+type        = "l",
+ylab        = " ",
+ylim        = c(-1.1, 1.1),
+xlim        = c(-.1,2.1),
+main        = TeX("$\\int_{0}^{2} -x + 1 \\, dx = 0$"))
+polygon(
+c(x[c(ai, ai:bi, bi)]),
+c(0, fx[ai:bi], 0),
+col         = "gray90")
+dev.off()
+```
+
+
+```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
+knitr::include_graphics(
+"7-Abbildungen/magl-7-bestimmte-integrale-beispiele.pdf")
+```
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Beispiele zum Zweiten Hauptsatz der Differenzial- und Integralrechnung
+\par\vspace{1mm}
+
+\footnotesize
+Wir betrachten die Identitätsfunktion
+\begin{equation}
+f : \mathbb{R} \to \mathbb{R}, x \mapsto f(x) := x
+\end{equation}
+und wollen das bestimmte Integral dieser Funktion auf dem Intervall $[0,1]$,
+also
+\begin{equation}
+\int_0^1 f(x)\,dx = \int_0^1 x \,dx
+\end{equation}
+berechnen.
+
+Dazu erinnern wir uns, dass eine Stammfunktion von $f$ durch
+\begin{equation}
+F : \mathbb{R} \to \mathbb{R}, x \mapsto F(x) := \frac{1}{2}x^2
+\end{equation}
+gegeben ist, weil
+\begin{equation}
+F'(x) = \frac{d}{dx}\left(\frac{1}{2}x^2 \right) = 2 \cdot \frac{1}{2} x^{2-1} = x.
+\end{equation}
+Einsetzen in den Zweiten Hauptsatz der Differenzial- und Integralrechnung ergibt
+dann sofort
+\begin{equation}
+\int_0^1 x \,dx = \frac{1}{2}1^2  - \frac{1}{2}0^2 = \frac{1}{2}.
+\end{equation}
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Beispiele zum Zweiten Hauptsatz der Differenzial- und Integralrechnung
+\par\vspace{1mm}
+
+\footnotesize
+Wir betrachten die Quadratfunktion
+\begin{equation}
+f : \mathbb{R} \to \mathbb{R}, x \mapsto f(x) := x^2
+\end{equation}
+und wollen das bestimmte Integral dieser Funktion auf dem Intervall $[0,1]$,
+also
+\begin{equation}
+\int_0^1 f(x)\,dx = \int_0^1 x^2 \,dx
+\end{equation}
+berechnen.
+
+Dazu erinnern wir uns, dass eine Stammfunktion von $f$ durch
+\begin{equation}
+F : \mathbb{R} \to \mathbb{R}, x \mapsto F(x) := \frac{1}{3}x^3
+\end{equation}
+gegeben ist, weil
+\begin{equation}
+F'(x) = \frac{d}{dx}\left(\frac{1}{3}x^3 \right) = 3 \cdot \frac{1}{3} x^{3-1} = x^2.
+\end{equation}
+Einsetzen in den Zweiten Hauptsatz der Differenzial- und Integralrechnung ergibt
+dann sofort
+\begin{equation}
+\int_0^1 x^2 \,dx = \frac{1}{3}1^3  - \frac{1}{3}0^3 = \frac{1}{3}.
+\end{equation}
+
+
+# Bestimmte Integrale 
+\vspace{2mm}
+\small
+Beispiele zum Zweiten Hauptsatz der Differenzial- und Integralrechnung
+\par\vspace{1mm}
+
+\footnotesize
+Wir betrachten die linear-affine Funktion
+\begin{equation}
+f : \mathbb{R} \to \mathbb{R}, x \mapsto f(x) := -x + 1
+\end{equation}
+und wollen das bestimmte Integral dieser Funktion auf dem Intervall $[0,2] $,
+also
+\begin{equation}
+\int_0^2 f(x)\,dx = \int_0^2 -x + 1 \,dx
+\end{equation}
+berechnen.
+
+Dazu erinnern wir uns, dass eine Stammfunktion der linear-affinen Funktion mit
+$a = -1$ und $b = 1$ durch
+\begin{equation}
+F : \mathbb{R} \to \mathbb{R}, x \mapsto F(x) := -\frac{1}{2}x^2 + x
+\end{equation}
+gegeben ist, weil
+\begin{equation}
+F'(x) = \frac{d}{dx}\left(-\frac{1}{2}x^2 + x \right) = - 2 \cdot \frac{1}{2} x^{2-1} + 1 \cdot x^{1-1} = -x + 1.
+\end{equation}
+Einsetzen in den Zweiten Hauptsatz der Differenzial- und Integralrechnung ergibt
+dann sofort
+\begin{equation}
+\int_0^2 -x + 1 \,dx
+= \left(-\frac{1}{2}2^2 + 2 \right) - \left(-\frac{1}{2}0^2 + 0 \right)
+= -2 + 2 - 0
+= 0.
+\end{equation}
+
+
+#
+\large
+\setstretch{2.5}
+Unbestimmte Integrale
+
+Bestimmte Integrale
+
+**Uneigentliche Integrale**
+
+Mehrdimensionale Integrale
+
+Selbstkontrollfragen
+
+# Uneigentliche Integrale
+\footnotesize
+\begin{definition}[Uneigentliche Integrale]
+\justifying
+$f : \mathbb{R} \to \mathbb{R}$ sei eine univariate reellwertige Funktion. Mit den Definitionen
+\begin{equation}
+\int_{-\infty}^b f(x)\,dx := \lim_{a \to -\infty} \int_a^b f(x)\,dx
+\mbox{ und }
+\int_a^\infty f(x)\,dx := \lim_{b \to \infty} \int_a^b f(x)\,dx
+\end{equation}
+und der Additivität von Integralen
+\begin{equation}
+\int_{-\infty}^\infty f(x)\,dx = \int_{-\infty}^b f(x)\,dx + \int_b^{\infty}f(x)\,dx
+\end{equation}
+wird der Begriff des bestimmten Integrals auf die unbeschränkten Integrationsintervalle $]-\infty,b]$,
+$[a,\infty[$ und $]-\infty,\infty[$ erweitert. Integrale mit unbeschränkten 
+Integrationsintervallen heißen \textit{uneigentliche Integrale}. Wenn die 
+entsprechenden Grenzwerte existieren, sagt man, dass die uneigentlichen Integrale 
+\textit{konvergieren}.
+\end{definition}
+Bemerkung
+
+* Für die WDF $f$ einer Zufallsvariable ist die Forderung $\int_{-\infty}^\infty f(x)\,dx = 1$ zentral.
+
+
+
+# Uneigentliche Integrale 
+\vspace{2mm}
+\small
+Beispiel (Uneigentliches Integral)
+\par\vspace{1mm}
+
+\footnotesize
+Wir betrachten das uneigentliche Integral $\int_1^{\infty} \frac{1}{x^2}\,dx$.
+
+Nach den Festlegungen in der Definition uneigentlicher Integrale gilt
+\begin{equation}
+\int_1^{\infty} \frac{1}{x^2}\,dx = \lim_{b \to \infty} \int_1^b \frac{1}{x^2}\,dx.
+\end{equation}
+
+Mit der Stammfunktion $F(x) = -x^{-1}$ von $f(x) = x^{-2}$ auf $]0,\infty[$
+ergibt sich für das bestimmte Integral in obiger Gleichung
+\begin{equation}
+\int_1^b \frac{1}{x^2}\,dx
+= F(b) - F(1)
+= -\frac{1}{b} - \left(-\frac{1}{1}\right)
+= -\frac{1}{b} + 1.
+\end{equation}
+
+Es ergibt sich also
+\begin{equation}
+\int_1^{\infty} \frac{1}{x^2}\,dx
+= \lim_{b \to \infty} \int_1^b \frac{1}{x^2}\,dx
+= \lim_{b \to \infty}\left(-\frac{1}{b} + 1\right)
+= - \lim_{b \to \infty}\frac{1}{b} + \lim_{b \to \infty} 1
+= 0 + 1
+= 1.
+\end{equation}
+
+
+#
+\large
+\setstretch{2.5}
+Unbestimmte Integrale
+
+Bestimmte Integrale
+
+Uneigentliche Integrale
+
+**Mehrdimensionale Integrale**
+
+Selbstkontrollfragen
+
+# Mehrdimensionale Integrale
+\footnotesize
+\begin{definition}[Mehrdimensionale Integrale]
+\normalfont
+\justifying
+$f : \mathbb{R}^n \to \mathbb{R}$ sei eine multivariate reellwertige Funktion. 
+Dann heißen Integrale der Form
+\begin{equation}
+\int\limits_{[a_1,b_1]\times \cdots \times [a_n,b_n]} f(x)\,dx
+= \int_{a_1}^{b_1} \cdots \int_{a_n}^{b_n} f(x_1,\ldots,x_n)\,dx_n\cdots\,dx_1
+\end{equation}
+\textit{mehrdimensionale bestimmte Integrale auf Hyperrechtecken}. Weiterhin 
+heißen Integrale der Form
+\begin{equation}
+\int_{\mathbb{R}^n} f(x)\,dx
+= \int_{-\infty}^{\infty}  \cdots \int_{-\infty}^{\infty}
+f(x_1,...,x_n)\,dx_1...\,dx_n
+\end{equation}
+\textit{mehrdimensionale uneigentliche Integrale.}
+\end{definition}
+Bemerkungen
+
+* Man kann multivariate reellwertige Funktionen nicht nur auf Hyperrechtecken, 
+sondern im Prinzip auf beliebigen Integrationsgebieten integrieren. Dies kann sich 
+jedoch oft schwierig gestalten. Der \textit{Satz von Fubini} besagt, dass man 
+mehrdimensionale Integrale in  beliebiger Koordinatenfolge auswerten kann, 
+also dass zum Beispiel
+\begin{equation}
+\int_{a_1}^{b_1} \left(\int_{a_2}^{b_2} f(x_1,x_2)\,dx_2\right) \,dx_1
+= \int_{a_2}^{b_2} \left(\int_{a_1}^{b_1} f(x_1,x_2)\,dx_1 \right) \,dx_2.
+\end{equation}
+* Für die WDF eines Zufallsvektors ist die Forderung $\int_{\mathbb{R}^n} f(x)\,dx = 1$ zentral.
+
+# Mehrdimensionale Integrale 
+\vspace{2mm}
+\small
+Beispiel (Zweidimensionales Integral)
+\par\vspace{1mm}
+
+\footnotesize
+Wir betrachten das zweidimensionale bestimmte Integral der Funktion
+\begin{equation}
+f : \mathbb{R}^2 \to \mathbb{R}, (x_1,x_2) \mapsto f(x_1,x_2) := x_1^2 + 4x_2
+\end{equation}
+auf dem Rechteck $[0,1] \times [0,1]$. In
+\begin{equation}\label{eq:double_integral}
+\int_0^1 \int_0^1 x_1^2 + 4x_2 \,dx_1\,dx_2 = \int_0^1 \left(\int_0^1 x_1^2 + 4x_2 \,dx_1\right)\,dx_2
+\end{equation}
+betrachten wir zunächst das innere Integral. $x_2$ nimmt hier die Rolle einer Konstanten ein.
+Eine Stammfunktion von $g(x_1) := x_1^2  +4 x_2$ ist $G(x_1) = \frac{1}{3}x_1^3 + 4x_2x_1$, 
+wie man sich durch Ableiten von $G$ überzeugt. Es ergibt sich also für das innere Integral
+\begin{equation}
+\int_0^1 x_1^2 + 4x_2 \,dx_1
+= G(1) - G(0)
+= \frac{1}{3}\cdot1^3 + 4x_2\cdot 1 - \frac{1}{3}\cdot 0^3 - 4x_2\cdot 0 = \frac{1}{3} + 4x_2
+\end{equation}
+Betrachten des äußeren Integrals in Gleichung \eqref{eq:double_integral} ergibt 
+dann mit der Stammfunktion $H(x_2) = \frac{1}{3}x_2 + 2x_2^2$ von $h(x_2) := \frac{1}{3} + 4x_2$, dass
+\begin{equation}
+\int_0^1 \int_0^1 x_1^2 + 4x_2 \,dx_1\,dx_2
+= \int_0^1 \frac{1}{3} + 4x_2 \,dx_2
+= H(1) - H(0)
+= \frac{1}{3}\cdot 1 + 2\cdot 1^2 - \frac{1}{3}\cdot 0 - 2\cdot 0^2
+= \frac{7}{3}.
+\end{equation}
+
+#
+\large
+\setstretch{2.5}
+Unbestimmte Integrale
+
+Bestimmte Integrale
+
+Uneigentliche Integrale
+
+Mehrdimensionale Integrale
+
+**Selbstkontrollfragen**
+
+# Selbstkontrollfragen
+\footnotesize
+\vfill
+\setstretch{3}
+1. Geben Sie die Definition des Begriffs der Stammfunktion wieder.
+1. Geben Sie die Definition des Begriffs des unbestimmten Integrals wieder.
+1. Erläutern Sie die intuitive Bedeutung des Begriffs des Riemannschen
+Integrals.
+1. Geben Sie den Ersten Hauptsatz der Differenzial- und Integralrechnung wieder.
+1. Geben Sie den Zweiten Hauptsatz der Differenzial- und Integralrechnung
+wieder.
+1. Erläutern Sie den Begriff des uneigentlichen Integrals.
+1. Erläutern Sie den Begriff des mehrdimensionalen Integrals.
+\vfill
+
+# Selbstkontrollfragen - Lösungen
+\footnotesize
+\vfill
+\setstretch{3}
+1. Siehe Definition (Unbestimmtes Integral und Stammfunktion).
+1. Siehe Definition (Unbestimmtes Integral und Stammfunktion).
+1. Das Riemannsche Integral entspricht der vorzeichenbehafteten Fläche zwischen
+dem Funktionsgraphen und der $x$-Achse.
+1. Siehe Theorem (Erster Hauptsatz der Differenzial- und Integralrechnung).
+1. Siehe Theorem (Zweiter Hauptsatz der Differenzial- und Integralrechnung).
+1. Uneigentliche Integrale behandeln unendliche Integrationsgrenzen
+durch geeignete Grenzwerte.
+1. Mehrdimensionale Integrale sind Integrale multivariater Funktionen über
+Teilmengen ihrer Definitionsmenge.
