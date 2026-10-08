@@ -365,21 +365,14 @@ $M,N$ und $O$ seien Mengen mit $M\subseteq O$ und $N \subseteq O$. Dann gelten
 \begin{itemize}
 \item[(1)] $\left(M \cap N\right)^c = M^c \cup N^c$
 \item[(2)] $\left(M \cup N\right)^c = M^c \cap N^c$
-
-\end{itemize}
-Weiterhin gilt für eine beliebige Indexmenge $I$ und Mengen $M_i \subseteq O$
-für alle $i \in I$, dass
-
-\begin{itemize}
-\item[(3)]  $\left(\cap_{i\in I} M_i\right)^c = \cup_{i\in I} M_i^c$
-\item[(4)]  $\left(\cup_{i\in I} M_i\right)^c = \cap_{i\in I} M_i^c$
 \end{itemize}
 \end{theorem}
 \footnotesize
 Bemerkungen
 
 * Untenstehend beweisen wir exemplarisch Aussage (1).
-* Für Beweise der weiteren Aussagen verweisen wir auf die weiterführende Literatur.
+* Für einen Beweis von Aussage (2) verweisen wir auf die weiterführende
+Literatur.
 
 # Verknüpfungen
 \footnotesize
@@ -429,13 +422,64 @@ $\hfill\Box$
 
 # Verknüpfungen
 \small
+\begin{definition}[Mehrfache Mengenverknüpfungen]
+\justifying
+Es seien $n \in \mathbb{N}$ und $M_1,\ldots,M_n$ Mengen. Es bezeichnen
+
+\begin{itemize}
+\item die \textit{Vereinigung mehrerer Mengen}
+\begin{equation}
+\bigcup_{i = 1}^{n} M_i := M_1 \cup M_2 \cup \cdots \cup M_n,
+\end{equation}
+\item der \textit{Durchschnitt mehrerer Mengen}
+\begin{equation}
+\bigcap_{i = 1}^{n} M_i := M_1 \cap M_2 \cap \cdots \cap M_n.
+\end{equation}
+\end{itemize}
+
+Dabei stehen
+
+\begin{itemize}
+\item die Symbole $\bigcup$ und $\bigcap$ für die jeweilige Mengenoperation,
+\item das Subskript $i = 1$ für den \textit{Laufindex} und den
+\textit{Startindex},
+\item das Superskript $n$ für den \textit{Endindex} und
+\item $M_1,\ldots,M_n$ für die verknüpften Mengen.
+\end{itemize}
+
+Die Vereinigung enthält alle Elemente, die zu mindestens einer der Mengen
+$M_i$ gehören. Der Durchschnitt enthält alle Elemente, die zu jeder der
+Mengen $M_i$ gehören.
+\end{definition}
+
+# Verknüpfungen
+\footnotesize
+Bemerkungen
+
+* Die Indizes müssen eindeutig festgelegt sein. Die Bezeichnung des Laufindexes
+ist dagegen für das Ergebnis der Mengenoperation irrelevant. Beispielsweise
+gilt
+\begin{equation}
+\bigcup_{i = 1}^{n} M_i = \bigcup_{j = 1}^{n} M_j.
+\end{equation}
+
+* Manchmal wird der Laufindex als Element einer \textit{Indexmenge} angegeben.
+Ist beispielsweise $I := \{1,5,7\}$, so gilt
+\begin{equation}
+\bigcup_{i \in I} M_i := M_1 \cup M_5 \cup M_7.
+\end{equation}
+Die entsprechende Schreibweise verwenden wir auch für den Durchschnitt
+mehrerer Mengen.
+
+# Verknüpfungen
+\small
 \begin{definition}[Partition]
 \justifying
 $M$ sei eine Menge und $P := \{N_i\}$ sei eine Menge von Mengen $N_i$ mit
 $i = 1,...,n$,
 sodass gilt
 \begin{equation}
-\left(M = \cup_{i=1}^n N_i\right) \land \left(N_i \cap N_j = \emptyset \mbox{ für } i,j = 1,...,n \mbox{ und } i \neq j \right).
+\left(M = \bigcup_{i = 1}^{n} N_i\right) \land \left(N_i \cap N_j = \emptyset \mbox{ für } i,j = 1,...,n \mbox{ und } i \neq j \right).
 \end{equation}
 Dann heißt $P$ eine \textit{Partition von $M$}.
 \end{definition}
@@ -443,7 +487,6 @@ Dann heißt $P$ eine \textit{Partition von $M$}.
 
 Bemerkung
 
-* $\cup_{i=1}^n N_i$ bezeichnet die Vereinigung von $n$ Mengen $N_1,...,N_n$, also $N_1 \cup N_2 \cup \cdots \cup N_n$.
 * Partitionen sind Mengen disjunkter Teilmengen einer Menge.
 * Partitionen sind in der Regel nicht eindeutig, d. h. es gibt mehr als eine
 Partition einer Menge.
@@ -599,7 +642,7 @@ Umformung von Gleichung \eqref{eq-wurzel-zwei-annahme} ergibt
 \left(\frac{p}{q}\right)^2 = 2 \Leftrightarrow \frac{p^2}{q^2} = 2 \Leftrightarrow p^2 = 2q^2.
 \end{equation}
 Daraus folgt, dass $p^2$ durch $2$ teilbar und somit gerade ist. Daher muss auch
-$p$ gerade sein, da das Quadrat einer ungeraden ganzen Zahl stets ungerade ist.
+$p$ gerade sein, da eine ganze Zahl mit geradem Quadrat immer gerade ist.
 Wir können $p$ also mit einem $r \in \mathbb{Z}$ als $p = 2r$ schreiben.
 
 # Spezielle Mengen
@@ -687,13 +730,14 @@ Produkt
 der Mengen $M_1,...,M_n$} die Menge aller geordneten $n$-Tupel $(m_1,...,m_n)$
 mit $m_i \in M_i$ für $i = 1,...,n$, formal
 \begin{equation}
-\prod_{i=1}^n M_i := M_1 \times \cdots \times M_n := \{(m_1,...,m_n)
-                |m_i \in M_i \mbox{ für } i = 1,...,n\}.
+\times_{i = 1}^{n} M_i := M_1 \times \cdots \times M_n
+:= \{(m_1,\ldots,m_n) | m_i \in M_i \text{ für } i = 1,\ldots,n\}.
 \end{equation}
 Das $n$-fache Kartesische Produkt einer Menge $M$ mit sich selbst wird
 bezeichnet mit
 \begin{equation}
-M^n := \prod_{i=1}^n M := \{(m_1,...,m_n)|m_i \in M \mbox{ für } i = 1,...,n\}.
+M^n := \times_{i = 1}^{n} M
+:= \{(m_1,\ldots,m_n) | m_i \in M \text{ für } i = 1,\ldots,n\}.
 \end{equation}
 \end{definition}
 
@@ -746,7 +790,8 @@ $\Rightarrow$ Das Kartesische Produkt ist im Allgemeinen nicht kommutativ
 Das $n$-fache Kartesische Produkt der reellen Zahlen mit sich selbst wird
 bezeichnet mit
 \begin{equation}
-\mathbb{R}^n := \prod_{i=1}^n \mathbb{R} := \{x := (x_1,...,x_n)|x_i \in \mathbb{R}\}
+\mathbb{R}^n := \times_{i = 1}^{n} \mathbb{R}
+:= \{x := (x_1,\ldots,x_n) | x_i \in \mathbb{R} \text{ für } i = 1,\ldots,n\}.
 \end{equation}
 und wird ``$\mathbb{R}$ hoch $n$'' gesprochen. Wir schreiben die Elemente von
 $\mathbb{R}^n$ als Spalten
@@ -832,3 +877,7 @@ $0,1,2,...$.
 1. Siehe Definition (Intervalle).
 1. Siehe Definition (Kartesische Produkte).
 1. Siehe Definition (Menge der reellen Tupel $n$-ter Ordnung).
+
+
+# Referenzen
+\footnotesize

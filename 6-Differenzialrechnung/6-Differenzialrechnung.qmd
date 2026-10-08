@@ -210,8 +210,7 @@ berechnen.
 \justifying
 Für $k \in \mathbb{N}_0$ und reelle Koeffizienten $a_0,\ldots,a_k,a,b$
 gelten die folgenden Ableitungen. Die Funktionen sind auf $\mathbb{R}$
-definiert, die Logarithmusfunktion auf $]0,\infty[$. Für $k = 0$ wird die
-leere Summe in der Ableitung der Polynomfunktion als $0$ verstanden.
+definiert, die Logarithmusfunktion auf $]0,\infty[$.
 
 \begin{center}
 \begin{tabular}{lll}
@@ -563,19 +562,19 @@ Beispiel zur Produktregel
 \footnotesize
 Es sei
 \begin{equation}
-f:\mathbb{R} \to \mathbb{R}, x \mapsto f(x) := x^2 \sin(x).
+f : ]0,\infty[ \to \mathbb{R},\, x \mapsto f(x) := x^2\ln(x).
 \end{equation}
 Dann hat $f$ die Form
 \begin{equation}
-f(x) = g_1(x)g_2(x) \mbox{ mit } g_1(x) := x^2 \mbox{ und } g_2(x) := \sin(x).
+f(x) = g_1(x)g_2(x) \mbox{ mit } g_1(x) := x^2 \mbox{ und } g_2(x) := \ln(x).
 \end{equation}
 Es gelten außerdem
 \begin{equation}
-g_1'(x) = \frac{d}{dx}\left(x^2\right) = 2x \mbox{ und } g_2'(x) = \frac{d}{dx}\left(\sin x\right) = \cos(x).
+g_1'(x) = \frac{d}{dx}\left(x^2\right) = 2x \mbox{ und } g_2'(x) = \frac{d}{dx}\left(\ln(x)\right) = \frac{1}{x}.
 \end{equation}
 Also gilt mit der Produktregel
 \begin{equation}
-f'(x) = g_1'(x)g_2(x) + g_1(x)g_2'(x) = 2x\sin(x) + x^2\cos(x).
+f'(x) = g_1'(x)g_2(x) + g_1(x)g_2'(x) = 2x\ln(x) + x^2\frac{1}{x} = 2x\ln(x) + x.
 \end{equation}
 
 # Grundlagen der Differenzialrechnung
@@ -613,19 +612,19 @@ f : \mathbb{R} \to \mathbb{R}, x \mapsto f(x) := \exp\left(-x^2\right)
 \end{equation}
 Dann hat $f$ die Form
 \begin{equation}
-f(x) = g_2(g_1(x)) \mbox{ mit }  g_2(z) := \exp(z) \mbox{ und }  g_1(x) := -x^2,
+f(x) = g_1(g_2(x)) \mbox{ mit }  g_1(z) := \exp(z) \mbox{ und }  g_2(x) := -x^2,
 \end{equation}
-wobei man beachte, dass für das Funktionsargument $z$ in $g_2$ im Fall von $f$
+wobei man beachte, dass für das Funktionsargument $z$ in $g_1$ im Fall von $f$
 gerade $z = -x^2$ eingesetzt wird.
 
 Es gelten außerdem
 \begin{equation}
-g_1'(x) = \frac{d}{dx}\left(-x^2\right) = -2x  \mbox{ und }   g_2'(z) = \frac{d}{dz}\left(\exp(z)\right) = \exp(z). 
+g_1'(z) = \frac{d}{dz}\left(\exp(z)\right) = \exp(z) \mbox{ und } g_2'(x) = \frac{d}{dx}\left(-x^2\right) = -2x.
 \end{equation}
 
 Also gilt mit der Kettenregel
 \begin{equation}
-f'(x) = g_2'(g_1(x))g_1'(x) = \exp\left(-x^2\right)\left(-2x\right) = -2x\exp\left(-x^2 \right).
+f'(x) = g_1'(g_2(x))g_2'(x) = \exp\left(-x^2\right)\left(-2x\right) = -2x\exp\left(-x^2 \right).
 \end{equation} 
 
 Man kann sich die resultierende Ableitung der Kettenregel merken als
@@ -654,27 +653,27 @@ Selbstkontrollfragen
 \begin{definition}[Extremstellen und Extremwerte]
 \normalfont
 \justifying
-Es seien $U \subseteq \mathbb{R}$ und $f : U \to \mathbb{R}$ eine univariate
-reellwertige Funktion. $f$ hat an der Stelle $x_0 \in U$
+Es seien $I \subseteq \mathbb{R}$ und $f : I \to \mathbb{R}$ eine univariate
+reellwertige Funktion. $f$ hat an der Stelle $x_0 \in I$
 
 \begin{itemize}
-\item ein \textit{lokales Minimum}, wenn es ein Intervall $I := ]a,b[$ gibt mit $x_0 \in
-]a,b[$ und
+\item ein \textit{lokales Minimum}, wenn es eine offene
+Umgebung $U := ]a,b[$ von $x_0$ gibt mit
 \begin{equation}
-f(x_0) \le f(x) \mbox{ für alle } x\in I\cap U,
+f(x_0) \le f(x) \mbox{ für alle } x \in U \cap I,
 \end{equation}
 \item ein \textit{globales Minimum}, wenn gilt, dass
 \begin{equation}
-f(x_0) \le f(x) \mbox{ für alle } x\in U,
+f(x_0) \le f(x) \mbox{ für alle } x \in I,
 \end{equation}
-\item ein \textit{lokales Maximum}, wenn es ein Intervall $I := ]a,b[$ gibt mit $x_0 \in
-]a,b[$ und
+\item ein \textit{lokales Maximum}, wenn es eine offene
+Umgebung $U := ]a,b[$ von $x_0$ gibt mit
 \begin{equation}
-f(x_0) \ge f(x) \mbox{ für alle }  x\in I\cap U,
+f(x_0) \ge f(x) \mbox{ für alle } x \in U \cap I,
 \end{equation}
 \item ein \textit{globales Maximum}, wenn gilt, dass
 \begin{equation}
-f(x_0) \ge f(x) \mbox{ für alle } x\in U.
+f(x_0) \ge f(x) \mbox{ für alle } x \in I.
 \end{equation}
 \end{itemize}
 \end{definition}
@@ -685,22 +684,28 @@ f(x_0) \ge f(x) \mbox{ für alle } x\in U.
 \begin{definition}[Extremstellen und Extremwerte (fortgesetzt)]
 \justifying
 
-Der Wert $x_0 \in U$ der Definitionsmenge von $f$ heißt entsprechend \textit{lokale}
-oder \textit{globale Minimalstelle} oder \textit{Maximalstelle}, der Funktionswert
-$f(x_0) \in \mathbb{R}$ heißt entsprechend \textit{lokales} oder \textit{globales Minimum}
-oder \textit{Maximum}. Generell heißt der Wert $x_0 \in U$ \textit{Extremstelle} und der
-Funktionswert $f(x_0) \in \mathbb{R}$ \textit{Extremwert}.
+Der Wert $x_0 \in I$ der Definitionsmenge von $f$ heißt entsprechend
+\textit{lokale} oder \textit{globale Minimalstelle} oder
+\textit{Maximalstelle}, der Funktionswert $f(x_0) \in \mathbb{R}$ heißt
+entsprechend \textit{lokales} oder \textit{globales Minimum} oder
+\textit{Maximum}. Generell heißt der Wert $x_0 \in I$ \textit{Extremstelle}
+und der Funktionswert $f(x_0) \in \mathbb{R}$ \textit{Extremwert}.
+
+Ein lokales Minimum beziehungsweise Maximum heißt \textit{strikt}, wenn es eine
+offene Umgebung $U := ]a,b[$ von $x_0$ gibt, sodass für alle
+$x \in U \cap I$ mit $x \neq x_0$ die strikte Ungleichung
+$f(x_0) < f(x)$ beziehungsweise $f(x_0) > f(x)$ gilt.
 
 Minimalstellen und Maximalstellen werden auch mit
 \begin{equation}
-\argmin_{x \in U} f(x) \mbox{ beziehungsweise } \argmax_{x \in U} f(x)
+\argmin_{x \in I} f(x) \mbox{ beziehungsweise } \argmax_{x \in I} f(x)
 \end{equation}
 bezeichnet. Diese Ausdrücke bezeichnen die Mengen der globalen Minimalstellen
 beziehungsweise Maximalstellen. Die zugehörigen Extremwerte werden mit
 \begin{equation}
-\min_{x \in U} f(x) \mbox{ beziehungsweise } \max_{x \in U} f(x)
+\min_{x \in I} f(x) \mbox{ beziehungsweise } \max_{x \in I} f(x)
 \end{equation}
-bezeichnet, sofern sie angenommen werden.
+bezeichnet.
 \end{definition}
 
 
@@ -847,7 +852,6 @@ Minimalstelle. Bei $f''(x^*) < 0$ ist $x^*$ eine strikte lokale Maximalstelle.
 Bei $f''(x^*) = 0$ erlaubt dieses Kriterium keine Entscheidung.
 \end{itemize}
 
-Randstellen einer Definitionsmenge müssen gesondert untersucht werden.
 \end{theorem}
 
 

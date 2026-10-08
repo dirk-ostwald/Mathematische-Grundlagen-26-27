@@ -255,9 +255,7 @@ Es sei $f : D \to Z, x \mapsto f(x)$ eine Funktion.
 \begin{itemize}
 \item Die Funktion $f$ heißt \textit{injektiv}, wenn es zu jedem Bild
 $z \in f(D)$
-genau ein Urbild $x \in D$ gibt. Äquivalent gilt, dass $f$ injektiv ist,
-wenn aus $x_1,x_2 \in D$ mit $x_1 \neq x_2$ folgt, dass
-$f(x_1) \neq f(x_2)$ ist.
+genau ein Urbild $x \in D$ gibt.
 \item Die Funktion $f$ heißt \textit{surjektiv}, wenn $f(D) = Z$ gilt, wenn also
 jedes Element der Zielmenge $Z$ ein Urbild in der Definitionsmenge $D$ hat.
 \item Die Funktion $f$ heißt \textit{bijektiv}, wenn $f$ injektiv und surjektiv
@@ -287,6 +285,63 @@ Urbild unter $f$ hat.
 knitr::include_graphics("4-Abbildungen/magl-4-inj-sur-bij.pdf")
 ```
 \vfill
+
+# Definition und Eigenschaften
+\footnotesize
+\begin{theorem}[Charakterisierung der Injektivität]
+\justifying
+\normalfont
+Es sei $f : D \to Z, x \mapsto f(x)$ eine Funktion. Dann gilt
+\begin{equation}
+\small
+f \text{ ist injektiv}
+\Leftrightarrow \text{Aus } x_1, x_2 \in D \text{ mit } x_1 \neq x_2 \text{ folgt } f(x_1) \neq f(x_2).
+\end{equation}
+\end{theorem}
+
+# Definition und Eigenschaften
+\footnotesize
+\underline{Beweis}
+
+Wir beweisen die Äquivalenz, indem wir beide Implikationen zeigen.
+
+"$\Rightarrow$": Sei $f$ injektiv und seien $x_1, x_2 \in D$ beliebig.
+Wir zeigen
+\begin{equation}
+x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)
+\end{equation}
+durch einen indirekten Beweis. Dazu setzen wir
+\begin{equation}
+A : x_1 \neq x_2,\, B : f(x_1) \neq f(x_2).
+\end{equation}
+Nach dem Prinzip des indirekten Beweises genügt es, aus $\neg B$ die
+Aussage $\neg A$ herzuleiten.
+
+Es gelte also $f(x_1) = f(x_2)$. Dann sind $x_1$ und $x_2$ Urbilder
+desselben Bildes. Da $f$ injektiv ist, hat dieses Bild genau ein Urbild.
+Somit gilt $x_1 = x_2$, wie zu zeigen war.
+
+# Definition und Eigenschaften
+\footnotesize
+\underline{Beweis (fortgesetzt)}
+
+"$\Leftarrow$": Es gelte, dass aus $x_1, x_2 \in D$ mit $x_1 \neq x_2$
+stets $f(x_1) \neq f(x_2)$ folgt. Wir zeigen, dass $f$ injektiv ist.
+
+Sei dazu $z \in f(D)$ beliebig. Nach der Definition der Bildmenge hat
+$z$ mindestens ein Urbild.
+
+Dass $z$ höchstens ein Urbild hat, zeigen wir durch einen Beweis durch
+Widerspruch. Angenommen, $z$ hätte zwei verschiedene Urbilder
+$x_1, x_2 \in D$. Dann wäre $x_1 \neq x_2$, und nach unserer Voraussetzung
+müsste $f(x_1) \neq f(x_2)$ gelten. Da beide Argumente Urbilder von $z$
+sind, gilt jedoch
+\begin{equation}
+f(x_1) = z = f(x_2).
+\end{equation}
+Dies ist ein Widerspruch. Folglich hat $z$ genau ein Urbild. Da
+$z \in f(D)$ beliebig gewählt war, ist $f$ injektiv.
+$\hfill\Box$
 
 # Definition und Eigenschaften
 \small 
@@ -495,7 +550,7 @@ knitr::include_graphics("4-Abbildungen/magl-4-inversion.pdf")
 \footnotesize
 \begin{definition}[Lineare Abbildung]
 \justifying
-Es seien $D$ und $Z$ reelle Vektorräume. Eine Abbildung
+Es seien $D$ und $Z$ Mengen. Eine Abbildung
 $f : D \to Z, x \mapsto f(x)$ heißt \textit{lineare Abbildung}, wenn für alle
 $x,y \in D$ und alle $c \in \mathbb{R}$ gilt, dass
 \begin{equation}

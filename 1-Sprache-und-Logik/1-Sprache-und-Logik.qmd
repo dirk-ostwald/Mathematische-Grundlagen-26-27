@@ -194,8 +194,8 @@ verlieren und vom eigentlichen Weg abzukommen.
 Axiom
 
 \small
-Axiome sind unbeweisbare Theoreme, in dem Sinne, als dass sie als Grundannahmen
-zum Aufbau mathematischer Systeme dienen. Der Übergang zwischen Definitionen und 
+Axiome sind unbewiesene Grundannahmen, die als Ausgangspunkte zum Aufbau
+mathematischer Systeme dienen. Der Übergang zwischen Definitionen und 
 Axiomen ist oft fließend. Da wir mathematisch nicht besonders tief arbeiten, 
 bevorzugen wir den Begriff der Definition.
 
@@ -274,7 +274,7 @@ Bemerkungen
 * Im Körper der reellen Zahlen ist die Aussage $1 + 1 = 2$ richtig.
 * Im Körper der reellen Zahlen ist die Aussage $1 + 1 = 3$ falsch.
 * Die Binärität des Wahrheitsgehalts von Aussagen ist eine Annahme.
-* Definitionen sind immer wahr.
+* Definitionen legen Bedeutungen fest. Ihnen wird kein Wahrheitswert zugeordnet.
 
 # Aussagenlogik
 
@@ -435,6 +435,30 @@ nicht beschädigt    & nicht gesperrt    & wahr
 * Die Implikation verlangt für diesen Fall weder eine Sperrung noch deren Aufhebung.
 * Eine Sperrung bedeutet in diesem Beispiel daher nicht zwingend eine Beschädigung. 
 * Die Brücke könnte beispielsweise für eine Veranstaltung gesperrt sein.
+
+# Aussagenlogik
+\footnotesize
+\underline{Beispiel: $x = 2 \Rightarrow x^2 = 4$}
+
+Für $x \in \mathbb{R}$ betrachten wir die Aussagen
+\begin{equation}
+A : x = 2 \qquad \text{und} \qquad B : x^2 = 4.
+\end{equation}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+Beispiel & $A$ & $B$ & $A \Rightarrow B$ \\\hline
+$x = 2$  & wahr   & wahr   & wahr \\
+$x = -2$ & falsch & wahr   & wahr \\
+$x = 3$  & falsch & falsch & wahr
+\end{tabular}
+\end{center}
+
+Der einzige Fall, der die Implikation falsch machen würde, ist:
+$A$ ist wahr und $B$ ist falsch.
+
+Dieser Fall kann nicht auftreten, denn aus $x = 2$ folgt $x^2 = 2^2 = 4$.
+Damit gilt $A \Rightarrow B$ für jedes $x \in \mathbb{R}$.
 
 # Aussagenlogik
 \footnotesize
@@ -624,24 +648,28 @@ Selbstkontrollfragen
 
 
 # Beweistechniken
-\setstretch{3}
-
-Typische Theoreme haben die Form $A \Rightarrow B$
-
-* Direkte Beweise nutzen Äquivalenzumformungen, um $A \Rightarrow B$ zu zeigen
-* Indirekte Beweise nutzen die logische Äquivalenz von $A \Rightarrow B$ und $(\neg B) \Rightarrow (\neg A)$ 
-* Beweise durch Widerspruch zeigen, dass $(\neg B) \land A$ falsch ist 
-
-\vspace{5mm}
-
+\footnotesize
 \setstretch{1.4}
-\center
-Wir nutzen in den allermeisten Fällen direkte Beweise durch 
 
-Äquivalenzumformungen von Gleichungen oder Ungleichungen 
+Typische Theoreme haben die Form $A \Rightarrow B$.
+
+* Direkte Beweise leiten die Konklusion $B$ aus der Voraussetzung $A$ durch
+gültige Schlussfolgerungen her. Dabei können Äquivalenzumformungen verwendet werden.
+* Beweise durch Kontraposition zeigen $(\neg B) \Rightarrow (\neg A)$ und nutzen
+die logische Äquivalenz dieser Aussage zu $A \Rightarrow B$.
+* Beweise durch Widerspruch nehmen $A \land \neg B$ an und leiten daraus
+einen Widerspruch her.
+
+\vspace{3mm}
+Beweise durch Kontraposition und Beweise durch Widerspruch heißen
+\textit{indirekte Beweise}.
+
+\vspace{3mm}
+Wir nutzen in den allermeisten Fällen direkte Beweise, häufig mithilfe von
+Äquivalenzumformungen von Gleichungen oder Ungleichungen.
 
 # Beweistechniken
-\vspace{3mm}
+\setstretch{1.05}
 \small
 Äquivalenzumformungen von Gleichungen
 
@@ -650,11 +678,12 @@ Wir nutzen in den allermeisten Fällen direkte Beweise durch
 \begin{equation}
 2x + 4 = 10 \Leftrightarrow 2x = 6
 \end{equation}
-* Multiplikation mit/Division durch eine Zahl auf beiden Seiten  
+* Multiplikation mit/Division durch eine von null verschiedene Zahl auf beiden Seiten  
 \begin{equation}
 2x = 6 \Leftrightarrow x = 3
 \end{equation}
-* Anwendung einer injektiven Funktion auf beiden Seiten  
+* Anwendung einer injektiven Funktion auf beiden Seiten, sofern beide Seiten
+in ihrem Definitionsbereich liegen.
 \begin{equation}
 \exp(x) = 2 \Leftrightarrow x = \ln(2)
 \end{equation}
@@ -667,15 +696,97 @@ Wir nutzen in den allermeisten Fällen direkte Beweise durch
 \begin{equation}
 -2x + 4 \ge 10 \Leftrightarrow -2x \ge 6
 \end{equation}
-* Multiplikation mit/Division durch eine Zahl auf beiden Seiten
+* Multiplikation mit/Division durch eine von null verschiedene Zahl auf beiden Seiten
 * Bei Multiplikation/Division mit negativer Zahl Umkehrung der Ungleichung 
 \begin{equation}
 -2x \ge 6 \Leftrightarrow x \le -3
 \end{equation}
-* Anwendung einer monotonen Funktion auf beiden Seiten  
+* Anwendung einer streng monotonen Funktion auf beiden Seiten, sofern beide
+Seiten in ihrem Definitionsbereich liegen. Bei streng monoton fallenden
+Funktionen wird das Ungleichungszeichen umgekehrt.
 \begin{equation}
 \exp(x) \ge 2 \Leftrightarrow x \ge \ln(2)
 \end{equation}
+
+# Beweistechniken
+\footnotesize
+\underline{Äquivalenzumformungen und Lösungsmengen}
+
+Eine Äquivalenzumformung erhält für jeden Wert der Variablen im betrachteten
+Definitionsbereich den Wahrheitswert. Die ursprüngliche und die umgeformte
+Gleichung besitzen deshalb dieselbe Lösungsmenge.
+
+Für $x \in \mathbb{R}$ betrachten wir zwei Beispiele.
+
+\textit{Äquivalenzumformung}
+\begin{equation}
+x + 3 = 7 \Leftrightarrow x = 4.
+\end{equation}
+Beide Gleichungen haben die Lösungsmenge $\{4\}$.
+
+\textit{Keine Äquivalenzumformung}
+\begin{equation}
+x = 2 \Rightarrow x^2 = 4.
+\end{equation}
+Die Lösungsmengen sind $\{2\}$ beziehungsweise $\{-2,2\}$.
+Die Rückrichtung gilt wegen $x = -2$ nicht allgemein.
+
+# Beweistechniken
+\footnotesize
+\underline{Direkter Beweis von $x = 2 \Rightarrow x^2 = 4$}
+
+Für $x \in \mathbb{R}$ betrachten wir $A : x = 2$ und $B : x^2 = 4$.
+Wir nehmen $x = 2$ an. Dann folgt
+\begin{equation}
+x^2 = 2^2 = 4.
+\end{equation}
+Damit ist $A \Rightarrow B$ bewiesen. Die Rechnung lässt sich auch als Kette schreiben:
+\begin{equation}
+x = 2 \Leftrightarrow 2x = 4 \Rightarrow x^2 = 4.
+\end{equation}
+
+* Nur der erste Schritt ist eine Äquivalenz. Der zweite ist lediglich eine
+Implikation: $x = -2$ erfüllt $x^2 = 4$, aber nicht $2x = 4$.
+* Einzelne Äquivalenzschritte machen die gesamte Kette noch nicht zu einer Äquivalenz.
+* Eine vollständige Äquivalenzkette würde sogar $A \Leftrightarrow B$ beweisen.
+
+# Beweistechniken
+\footnotesize
+\underline{Beweis durch Kontraposition von $x = 2 \Rightarrow x^2 = 4$}
+
+Für $x \in \mathbb{R}$ betrachten wir $A : x = 2$ und $B : x^2 = 4$.
+Die Negationen lauten
+\begin{equation}
+\neg A : x \neq 2 \qquad \text{und} \qquad \neg B : x^2 \neq 4.
+\end{equation}
+Wir nehmen $x^2 \neq 4$ an. Mit der dritten binomischen Formel folgt
+\begin{equation}
+x^2 \neq 4 \Rightarrow (x-2)(x+2) \neq 0
+\Rightarrow x-2 \neq 0 \Rightarrow x \neq 2.
+\end{equation}
+Ist ein Produkt ungleich null, so ist jeder seiner Faktoren ungleich null.
+
+Damit gilt $(\neg B) \Rightarrow (\neg A)$ und wegen der logischen Äquivalenz
+auch die ursprüngliche Implikation $A \Rightarrow B$.
+
+# Beweistechniken
+\footnotesize
+\underline{Beweis durch Widerspruch von $x = 2 \Rightarrow x^2 = 4$}
+
+Für $x \in \mathbb{R}$ betrachten wir $A : x = 2$ und $B : x^2 = 4$.
+Wir nehmen $A \land \neg B$ an, also
+\begin{equation}
+x = 2 \qquad \text{und} \qquad x^2 \neq 4.
+\end{equation}
+Aus $x = 2$ folgt jedoch
+\begin{equation}
+x^2 = 2^2 = 4.
+\end{equation}
+Damit gelten unter der Annahme gleichzeitig $x^2 = 4$ und $x^2 \neq 4$.
+Dies ist ein Widerspruch.
+
+Der einzige Fall, in dem $A \Rightarrow B$ falsch wäre, ist damit ausgeschlossen.
+Also gilt $x = 2 \Rightarrow x^2 = 4$.
 
 # Beweistechniken
 \footnotesize
@@ -697,7 +808,7 @@ a^2 < b^2
 \Leftrightarrow a < b.
 \end{equation} 
 
-\underline{Indirekter Beweis}  
+\underline{Beweis durch Kontraposition}  
 
 Es sei $a^2 \ge b^2$ die Aussage $\neg A$. Weiterhin sei $a \ge b$ die Aussage $\neg B$. Dann gilt
 \begin{equation}
@@ -771,5 +882,5 @@ Grundannahme.
 1. Siehe Definition (Implikation).
 1. Siehe Definition (Äquivalenz).
 1. Siehe Definition (Logische Äquivalenz). 
-1. Direkte Beweise nutzen Äquivalenzumformungen, um Aussagen der Form
-$A \Rightarrow B$ zu zeigen.
+1. Direkte Beweise leiten die Konklusion $B$ aus der Voraussetzung $A$ durch
+ gültige Schlussfolgerungen her. Dabei können Äquivalenzumformungen verwendet werden.

@@ -189,7 +189,7 @@ Beispiele für Funktionenfolgen
 \noindent (1) Wir betrachten die Menge $\phi$ der univariaten reellwertigen Funktionen der
 Form
 \begin{equation}
-\phi := \{f_n|f_n : \{x \in \mathbb{R} \mid 0 \le x \le 1\} \to \mathbb{R}, x \mapsto f_n(x) := x^n \mbox{ für } n \in \mathbb{N}\}
+\phi := \{f_n | f_n : [0,1] \to \mathbb{R},\, x \mapsto f_n(x) := x^n \text{ für } n \in \mathbb{N}\}
 \end{equation}
 Dann definiert
 \begin{equation}
@@ -204,8 +204,8 @@ f_1(x) := x^1, f_2(x) := x^2, f_3(x) := x^3, ...
 reellwertigen Funktionen der
 Form
 \begin{equation}
-\phi := \{f_n|f_n : \{x \in \mathbb{R} \mid -a \le x \le a\} \to \mathbb{R}, x \mapsto f_n(x) := \sum_{k = 0}^n \frac{x^k}{k!} \mbox{ für } n \in
-\mathbb{N}\}
+\phi
+:= \left\{f_n | f_n : [-a,a] \to \mathbb{R},\, x \mapsto f_n(x) := \sum_{k = 0}^n \frac{x^k}{k!} \text{ für } n \in \mathbb{N}\right\}
 \end{equation}
 Dann definiert
 \begin{equation}
@@ -322,11 +322,30 @@ Für die geometrischen Folgen gilt mit $q \in ]-1,1[$
 Bemerkungen
 
 * Harmonische und geometrische Folgen sind also Nullfolgen.
-* Für Beweise dieser Theoreme verweisen wir auf die weiterführende Literatur.
+* Für Beweise der allgemeinen Grenzwertaussagen verweisen wir auf die weiterführende
+Literatur. Den Spezialfall $1/n \to 0$ zeigen wir auf der folgenden Folie.
 * Die Beweise der Theoreme beruhen direkt auf dem Archimedischen Axiom und der
 Bernoulli-Ungleichung.
 * Beweise dieser Tatsachen wiederum liegen mathematisch sehr tief.
 
+
+# Grenzwerte
+\footnotesize
+\underline{Nachweis des Grenzwerts der harmonischen Folge}
+
+Wir zeigen
+\begin{equation}
+\lim_{n\to\infty}\frac{1}{n}=0.
+\end{equation}
+Sei $\epsilon>0$ beliebig. Mit der Aufrundungsfunktion $\lceil\cdot\rceil$ wählen wir
+\begin{equation}
+m:=\left\lceil\frac{1}{\epsilon}\right\rceil+1.
+\end{equation}
+Dann ist $m\in\mathbb{N}$ und $m>1/\epsilon$. Für alle $n\ge m$ gilt daher
+\begin{equation}
+\left|\frac{1}{n}-0\right|=\frac{1}{n}\le\frac{1}{m}<\epsilon.
+\end{equation}
+Damit ist die Definition des Grenzwerts erfüllt.
 
 # Grenzwerte
 Beispiele für Grenzwerte von Folgen
@@ -465,24 +484,21 @@ F : \mathbb{N} \to \phi, n \mapsto F(n) := f_n
 \end{equation}
 mit
 \begin{equation}
-\phi := \{f_n|f_n : \{x \in \mathbb{R} \mid 0 \le x \le 1\} \to \mathbb{R}, x \mapsto f_n(x) := x^n \mbox{ für } n \in \mathbb{N}\}
+\phi := \{f_n | f_n : [0,1] \to \mathbb{R},\, x \mapsto f_n(x) := x^n \text{ für } n \in \mathbb{N}\}
 \end{equation}
 Dann ist $F$ punktweise konvergent mit Grenzfunktion
 \begin{equation}
-f : \{x \in \mathbb{R} \mid 0 \le x \le 1\} \to \mathbb{R}, x \mapsto f(x)
- :=
+f : [0,1] \to \mathbb{R},\, x \mapsto f(x) :=
 \begin{cases}
-0, & \mbox{ für } x \in \{x \in \mathbb{R} \mid 0 \le x < 1\} \\
-1, & \mbox{ für } x = 1       \\
+0, & \text{für } x \in [0,1[, \\
+1, & \text{für } x = 1.
 \end{cases}
 \end{equation}
-da $f_n(x) := x^n$ für $x \in \{x \in \mathbb{R} \mid 0 \le x < 1\}$ eine
-geometrische Folge und damit eine Nullfolge ist und $f_n(x) := x^n$ für $x = 1$
-eine konstante Folge ist, für die alle Folgenglieder den Abstand $0$ von $1$
-haben. Die Funktionenfolge $F$ konvergiert also gegen eine Funktion, die auf dem
-gesamten Intervall $\{x \in
-\mathbb{R} \mid 0 \le x \le 1\}$
-gleich null ist, außer im Punkt $1$. Diese Funktion hat offenbar einen Sprung.
+Da $f_n(x) := x^n$ für $x \in [0,1[$ eine geometrische Folge und damit eine
+Nullfolge ist und für $x = 1$ eine konstante Folge mit Wert $1$, konvergiert
+die Funktionenfolge $F$ gegen eine Funktion, die auf dem gesamten Intervall
+$[0,1]$ gleich null ist, außer im Punkt $1$. Diese Funktion hat offenbar
+einen Sprung.
 
 # Grenzwerte
 \small
@@ -495,15 +511,15 @@ F : \mathbb{N} \to \phi, n \mapsto F(n) := f_n
 \end{equation}
 mit
 \begin{equation}
-\phi := \{f_n|f_n : \{x \in \mathbb{R} \mid -a \le x \le a\} \to \mathbb{R}, x \mapsto f_n(x) := \sum_{k = 0}^n \frac{x^k}{k!} \mbox{ für } n \in
-\mathbb{N}\}
+\phi
+:= \left\{f_n | f_n : [-a,a] \to \mathbb{R},\, x \mapsto f_n(x) := \sum_{k = 0}^n \frac{x^k}{k!} \text{ für } n \in \mathbb{N}\right\}
 \end{equation}
 Dann ist $F$ punktweise konvergent mit Grenzfunktion
 \begin{equation}
-f : \{x \in \mathbb{R} \mid -a \le x \le a\} \to \mathbb{R}, x \mapsto f(x) := \sum_{k = 0}^\infty \frac{x^k}{k!} := \exp(x)
+f : [-a,a] \to \mathbb{R},\, x \mapsto f(x) := \sum_{k = 0}^\infty \frac{x^k}{k!} = \exp(x).
 \end{equation}
-Die Funktionenfolge $F$ konvergiert also gegen die Exponentialfunktion auf $\{x
-\in \mathbb{R} \mid -a \le x \le a\}$.
+Die Funktionenfolge $F$ konvergiert also punktweise gegen die
+Exponentialfunktion auf $[-a,a]$.
 
 # Grenzwerte
 
@@ -700,6 +716,21 @@ Grenzwert.
 Stelle $a$.
 * Der Wert $f(a)$ spielt für diesen Grenzwert keine Rolle.
 
+# Grenzwerte
+\footnotesize
+\underline{Grenzwert von $f(x):=2x$ an der Stelle $a=1$}
+
+Für $f:\mathbb{R}\to\mathbb{R}$ mit $f(x):=2x$ zeigen wir
+\begin{equation}
+\lim_{x\to1}2x=2.
+\end{equation}
+Sei $\epsilon>0$ beliebig. Wir wählen $\delta:=\epsilon/2>0$.
+Für alle $x\in\mathbb{R}$ mit $0<|x-1|<\delta$ gilt dann
+\begin{equation}
+|f(x)-2|=|2x-2|=2|x-1|<2\delta=\epsilon.
+\end{equation}
+Damit ist das $\epsilon$-$\delta$-Kriterium erfüllt und der behauptete Grenzwert gezeigt.
+
 #
 \vfill
 \Large
@@ -738,9 +769,25 @@ $f(a)$.
 Zielwert ist ausdrücklich $f(a)$.
 * Für $x = a$ ist die geforderte Ungleichung automatisch erfüllt.
 * Beispiele für stetige Funktionen sind die elementaren Funktionen aus (4)
-Funktionen.
-* Beispiele für nicht-stetige Funktionen sind Wahrscheinlichkeitsmassefunktionen
-und die Heaviside-Funktion.
+Funktionen, jeweils auf ihrem Definitionsbereich.
+* Ein Beispiel für eine unstetige Funktion ist die Heaviside-Funktion.
+
+# Stetigkeit
+\footnotesize
+\underline{Stetigkeit von $f(x):=2x$ auf $\mathbb{R}$}
+
+Sei $f:\mathbb{R}\to\mathbb{R}$ mit $f(x):=2x$.
+Wir haben bereits $\lim_{x\to1}f(x)=f(1)=2$ gezeigt.
+Die Funktion ist also stetig in $a=1$.
+
+Zum Nachweis der Stetigkeit auf ganz $\mathbb{R}$ seien nun $a\in\mathbb{R}$
+und $\epsilon>0$ beliebig. Wir wählen $\delta:=\epsilon/2>0$.
+
+Für alle $x\in\mathbb{R}$ mit $|x-a|<\delta$ gilt dann
+\begin{equation}
+|f(x)-f(a)|=|2x-2a|=2|x-a|<2\delta=\epsilon.
+\end{equation}
+Damit ist $f$ an jeder Stelle $a\in\mathbb{R}$ stetig und folglich stetig auf $\mathbb{R}$.
 
 # Stetigkeit
 \footnotesize
@@ -758,6 +805,54 @@ Implikation für alle $x \in D$ gilt.
 |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon.
 \end{equation*}
 
+
+# Stetigkeit
+\footnotesize
+\begin{theorem}[Grenzwertbildung bei stetigen Funktionen]
+\normalfont
+\justifying
+Es seien $D \subseteq \mathbb{R}$, $f : D \to \mathbb{R}$ eine Funktion
+und $a \in D$. Ferner sei $g : H \to D$ eine Funktion, wobei $0$ ein
+Häufungspunkt von $H \subseteq \mathbb{R}$ ist.
+Ist $f$ stetig in $a$ und gilt
+\begin{equation}
+\lim_{h \to 0} g(h) = a,
+\end{equation}
+so gilt auch
+\begin{equation}
+\lim_{h \to 0} f(g(h)) = f(a).
+\end{equation}
+\end{theorem}
+
+# Stetigkeit
+\footnotesize
+\underline{Beweis}
+
+Sei $\epsilon > 0$ beliebig. Wegen der Stetigkeit von $f$ in $a$ gibt es
+ein $\delta > 0$, sodass für alle $t \in D$ gilt:
+\begin{equation}
+|t-a| < \delta \quad\Rightarrow\quad |f(t)-f(a)| < \epsilon.
+\end{equation}
+Wegen $\lim_{h \to 0} g(h) = a$ gibt es zu diesem $\delta > 0$ ein
+$\eta > 0$, sodass für alle $h \in H$ gilt:
+\begin{equation}
+0 < |h| < \eta \quad\Rightarrow\quad |g(h)-a| < \delta.
+\end{equation}
+Da $g(h) \in D$ liegt, können wir die erste Implikation mit $t=g(h)$
+anwenden. Somit gilt für alle $h \in H$:
+\begin{equation}
+0 < |h| < \eta
+\quad\Rightarrow\quad |g(h)-a| < \delta
+\quad\Rightarrow\quad |f(g(h))-f(a)| < \epsilon.
+\end{equation}
+Damit ist die Definition des Funktionsgrenzwerts für $f \circ g$ erfüllt,
+also gilt $\lim_{h \to 0} f(g(h)) = f(a)$.
+$\hfill \Box$
+Bemerkung
+
+* In (7) Integralrechnung wenden wir diesen Satz im Beweis des ersten
+Hauptsatzes mit $g(h):=\xi_h$ und $a=x$ an. Dabei ist $\xi_h$ der
+Mittelwertsatzpunkt zwischen $x$ und $x+h$.
 
 # Stetigkeit
 \footnotesize

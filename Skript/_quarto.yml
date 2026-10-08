@@ -4,7 +4,7 @@
 # Die Inhalte dieses Buchprojekts werden NICHT dupliziert. Einzige Quelle ist
 # das Buchprojekt
 #
-#   C:\Users\dirko\Nextcloud\Home\pdwp-online\dirk-ostwald.github.io
+#   pdwp-online/dirk-ostwald.github.io (relativ zu einem uebergeordneten Ordner)
 #
 # das über die Windows-Verzeichnis-Junction _src in dieses Projektverzeichnis
 # eingeblendet wird (vgl. README.md und Setup.cmd). Dadurch bleiben alle

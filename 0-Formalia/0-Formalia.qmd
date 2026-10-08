@@ -2,15 +2,15 @@
 fontsize: 8pt
 format:
     beamer:
-        include-in-header: "Header.tex"
-bibliography: Referenzen.bib
+        include-in-header: "0-Header.tex"
+bibliography: 0-Referenzen.bib
 ---
 
 #  {.plain}
 
 \center
 ```{r, echo = FALSE, out.width = "20%", fig.align = "center"}
-knitr::include_graphics("Abbildungen/magl-otto.png")
+knitr::include_graphics("Abbildungen/magl-0-otto.png")
 ```
 \vspace{1mm}
 \huge
@@ -130,7 +130,7 @@ Freitag     & 16.10.2026    & 07.00 - 09.00 Uhr & Psychologische Forschungsmetho
 \vspace{5mm}
 \center
 ```{r, echo = FALSE, out.width = "65%"}
-knitr::include_graphics("Abbildungen/magl-homepage.png")
+knitr::include_graphics("Abbildungen/magl-0-homepage.png")
 ```
 
 # Formalia 
@@ -140,7 +140,6 @@ knitr::include_graphics("Abbildungen/magl-homepage.png")
 @voggenauer2025
 
 * Allgemeinbildung Mathematik 
-* Was man über Mathematik wissen kann, ohne es können zu müssen
 
 @arens2018
 

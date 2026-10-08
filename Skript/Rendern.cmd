@@ -6,9 +6,8 @@ setlocal
 cd /d "%~dp0"
 
 if not exist "_src" (
-  echo FEHLER: Die Junction _src fehlt. Bitte zuerst Setup.cmd ausfuehren.
-  pause
-  exit /b 1
+  call "%~dp0Setup.cmd"
+  if errorlevel 1 exit /b 1
 )
 
 quarto render --to pdf

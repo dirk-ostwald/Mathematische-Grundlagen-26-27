@@ -184,6 +184,22 @@ Grundrechenarten.
 x_2 + \cdots + x_n) = a\sum_{i = 1}^n x_i$.
 
 # Summen
+\footnotesize
+\underline{Beweis: Addition von Summen gleicher Länge}
+
+Für $x_1,\ldots,x_n,y_1,\ldots,y_n \in \mathbb{R}$ und $n \in \mathbb{N}$ gilt:
+\begin{equation}
+\begin{aligned}
+\sum_{i=1}^n x_i + \sum_{i=1}^n y_i
+&= (x_1+\cdots+x_n)+(y_1+\cdots+y_n)\\
+&= (x_1+y_1)+\cdots+(x_n+y_n)\\
+&= \sum_{i=1}^n(x_i+y_i).
+\end{aligned}
+\end{equation}
+Das Assoziativgesetz und das Kommutativgesetz der Addition erlauben
+das Umgruppieren und Umordnen der Summanden.
+
+# Summen
 \small
 \vspace{1mm}
 Beispiele
@@ -335,6 +351,25 @@ $4! = \prod_{i = 1}^4 i = 1 \cdot 2 \cdot 3 \cdot 4 = 24$.
 \prod_{i = 1}^n x_iy_i = \prod_{i = 1}^n x_i \prod_{i = 1}^n y_i
 \end{equation}
 \end{theorem}
+
+# Produkte
+\footnotesize
+\underline{Beweise zu den Produktregeln}
+
+Für $a,x_1,\ldots,x_n,y_1,\ldots,y_n \in \mathbb{R}$ und $n \in \mathbb{N}$ gilt:
+
+\textit{Potenzierung von Konstanten}
+\begin{equation}
+\prod_{i=1}^n ax_i = (ax_1)\cdots(ax_n) = a^n\prod_{i=1}^n x_i.
+\end{equation}
+
+\textit{Produkt von Produkten}
+\begin{equation}
+\prod_{i=1}^n x_i y_i = (x_1y_1)\cdots(x_ny_n) = (x_1\cdots x_n)(y_1\cdots y_n) = \left(\prod_{i=1}^n x_i\right)\left(\prod_{i=1}^n y_i\right).
+\end{equation}
+
+Das Assoziativgesetz und das Kommutativgesetz der Multiplikation erlauben
+das Umgruppieren und Umordnen der Faktoren.
 
 # Produkte
 \footnotesize

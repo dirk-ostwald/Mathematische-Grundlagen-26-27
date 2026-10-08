@@ -362,9 +362,8 @@ Zwischenpunkte $\xi$}.
 Bemerkungen
 
 * $|x|$ bezeichnet den *Betrag* von $x \in \mathbb{R}$.
-* Die Obersumme verwendet auf jedem Teilintervall das Supremum von $f$.
-* Die Untersumme verwendet auf jedem Teilintervall das Infimum von $f$.
-* Bei stetigem $f$ sind dies Maximum und Minimum auf dem Teilintervall.
+* Grob gesprochen nutzt die Obersumme auf jedem Teilintervall das Maximum
+von $f$, die Untersumme das Minimum.
 * Für Riemann-integrierbares $f$ geht die Differenz zwischen Ober- und
 Untersumme bei $\delta(Z) \to 0$ gegen null.
 
@@ -487,7 +486,7 @@ Dann gelten folgende Rechenregeln.
 \end{equation}
 (Orientierung) Man setzt
 \begin{equation}
-\int_a^a f(x)\,dx := 0 \mbox{ und } \int_b^a f(x)\,dx := -\int_a^b f(x)\,dx.
+\int_b^a f(x)\,dx := -\int_a^b f(x)\,dx.
 \end{equation}
 (Integrationsvariable) Es gilt
 \begin{equation}
@@ -509,93 +508,81 @@ Linearität
 \par\vspace{1mm}
 
 ```{r, echo = F, eval = F}
-library(latex2exp)
-pdf(
-file        = "7-Abbildungen/magl-7-integral-linearitaet.pdf",
-width       = 10,
-height      = 3.8)
-par(
-mfrow       = c(1,3),
-mar         = c(1,1,2,1),
-family      = "sans",
-las         = 1,
-font.main   = 1)
+library(latex2exp)                                                              # integral figure layout and geometry
+pdf(                                                                            # integral figure layout and geometry
+file        = "7-Abbildungen/magl-7-integral-linearitaet.pdf",  # integral figure layout and geometry
+width       = 12,                                                               # integral figure layout and geometry
+height      = 4.2)                                                              # integral figure layout and geometry
+par(                                                                            # integral figure layout and geometry
+mfrow       = c(1,3),                                                           # integral figure layout and geometry
+mar         = c(0.3,1,4.0,1),                                                   # integral figure layout and geometry
+family      = "sans",                                                           # integral figure layout and geometry
+las         = 1,                                                                # integral figure layout and geometry
+font.main   = 1)                                                                # integral figure layout and geometry
 
-# Gewichtete Funktionen auf demselben Intervall
-x           = seq(0,4,length.out = 1000)
-fx          = 5*dnorm(x,0.5) + 1
-gx          = 0.4 + x/4
-c1          = 1.3
-c2          = 1.2
-cf          = c1*fx
-cg          = c2*gx
-val         = cbind(cf,cg,cf + cg)
-ttl         = c("$c_1f(x)$","$c_2g(x)$","$c_1f(x) + c_2g(x)$")
+x           = seq(0,4,length.out = 1000)                                        # integral figure layout and geometry
+fx          = 5*dnorm(x,0.5) + 1                                                # integral figure layout and geometry
+gx          = 0.4 + x/4                                                         # integral figure layout and geometry
+c1          = 1.3                                                               # integral figure layout and geometry
+c2          = 1.2                                                               # integral figure layout and geometry
+cf          = c1*fx                                                             # integral figure layout and geometry
+cg          = c2*gx                                                             # integral figure layout and geometry
+val         = cbind(cf,cg,cf + cg)                                              # integral figure layout and geometry
+ttl         = c("$c_1\\int_a^b f(x)\\, dx$",                                    # integral subplot titles
+"$c_2\\int_a^b g(x)\\, dx$",                                                    # integral figure layout and geometry
+"$c_1\\int_a^b f(x)\\, dx + c_2\\int_a^b g(x)\\, dx$")                          # integral figure layout and geometry
 
-# Einzelne Flächen und ihre Summe bei gleicher Achsenskalierung
-for (idx in 1:3) {
-    plot(
-    x,
-    val[,idx],
-    type    = "n",
-    xlim    = c(-0.3,4.3),
-    ylim    = c(-0.9,5),
-    axes    = FALSE,
-    xlab    = "",
-    ylab    = "",
-    main    = TeX(ttl[idx]))
-    if (idx == 1) {
-        polygon(
-        c(x,rev(x)),
-        c(cf,rep(0,length(x))),
-        col    = "gray80")
-    }
-    if (idx == 2) {
-        polygon(
-        c(x,rev(x)),
-        c(cg,rep(0,length(x))),
-        col    = "gray95")
-    }
-    if (idx == 3) {
-        polygon(
-        c(x,rev(x)),
-        c(cf,rep(0,length(x))),
-        col    = "gray80")
-        polygon(
-        c(x,rev(x)),
-        c(cf + cg,rev(cf)),
-        col    = "gray95")
-        lines(x,cf,lty = 2)
-    }
+for (idx in 1:3) {                                                              # draw the three integral panels
+    plot(                                                                       # integral figure layout and geometry
+    x,                                                                          # integral figure layout and geometry
+    val[,idx],                                                                  # integral figure layout and geometry
+    type    = "n",                                                              # integral figure layout and geometry
+    xlim    = c(-0.3,4.3),                                                      # integral figure layout and geometry
+    ylim    = c(-0.4,5),                                                        # integral figure layout and geometry
+    axes    = FALSE,                                                            # integral figure layout and geometry
+    xlab    = "",                                                               # integral figure layout and geometry
+    ylab    = "",                                                               # integral figure layout and geometry
+    main    = TeX(ttl[idx]), cex.main = 1.15)                                   # integral figure layout and geometry
+    if (idx == 1) {                                                             # panel-specific elements
+        polygon(                                                                # shaded integral region
+        c(x,rev(x)),                                                            # integral figure layout and geometry
+        c(cf,rep(0,length(x))),                                                 # integral figure layout and geometry
+        col = "gray80")                                                         # integral figure layout and geometry
+    }                                                                           # integral figure layout and geometry
+    if (idx == 2) {                                                             # panel-specific elements
+        polygon(                                                                # shaded integral region
+        c(x,rev(x)),                                                            # integral figure layout and geometry
+        c(cg,rep(0,length(x))),                                                 # integral figure layout and geometry
+        col = "gray95")                                                         # integral figure layout and geometry
+    }                                                                           # integral figure layout and geometry
+    if (idx == 3) {                                                             # panel-specific elements
+        polygon(                                                                # shaded integral region
+        c(x,rev(x)),                                                            # integral figure layout and geometry
+        c(cf,rep(0,length(x))),                                                 # integral figure layout and geometry
+        col = "gray80")                                                         # integral figure layout and geometry
+        polygon(                                                                # shaded integral region
+        c(x,rev(x)),                                                            # integral figure layout and geometry
+        c(cf + cg,rev(cf)),                                                     # integral figure layout and geometry
+        col = "gray95")                                                         # integral figure layout and geometry
+        lines(x,cf,lty = 2)                                                     # function curve
+    }                                                                           # integral figure layout and geometry
 
-    if (idx == 1) {
-        lines(x,fx,lty = 2,lwd = 1.5)
-        text(1.3,1.95,TeX("$f(x)$"),cex = 1.1)
-    }
-    if (idx == 2) {
-        lines(x,gx,lty = 2,lwd = 1.5)
-        text(3,0.85,TeX("$g(x)$"),cex = 1.1)
-    }
-    lines(x,val[,idx],lwd = 1.5)
-    segments(-0.1,0,4.15,0)
-    segments(-0.1,0,-0.1,4.8)
-    text(0,-0.2,TeX("$a$"),cex = 1.2)
-    text(4,-0.2,TeX("$b$"),cex = 1.2)
-    if (idx == 1) {
-        text(2,0.4,TeX("$A$"),cex = 1.3)
-        text(2,-0.65,TeX("$A = c_1\\int_a^b f(x)\\,dx$"),cex = 0.95)
-    }
-    if (idx == 2) {
-        text(2,0.3,TeX("$B$"),cex = 1.3)
-        text(2,-0.65,TeX("$B = c_2\\int_a^b g(x)\\,dx$"),cex = 0.95)
-    }
-    if (idx == 3) {
-        text(2,0.4,TeX("$A$"),cex = 1.3)
-        text(2,2.7,TeX("$B$"),cex = 1.3)
-        text(2,-0.65,TeX("$A + B$"),cex = 1.1)
-    }
-}
-dev.off()
+    if (idx == 1) {                                                             # panel-specific elements
+        lines(x,fx,lty = 2,lwd = 1.5)                                           # function curve
+        text(1.3,1.95,TeX("$f(x)$"),cex = 1.1)                                  # mathematical label
+    }                                                                           # integral figure layout and geometry
+    if (idx == 2) {                                                             # panel-specific elements
+        lines(x,gx,lty = 2,lwd = 1.5)                                           # function curve
+        text(3,0.85,TeX("$g(x)$"),cex = 1.1)                                    # mathematical label
+    }                                                                           # integral figure layout and geometry
+    lines(x,val[,idx],lwd = 1.5)                                                # function curve
+    segments(-0.1,0,4.15,0)                                                     # coordinate axis
+    segments(-0.1,0,-0.1,4.8)                                                   # coordinate axis
+    text(0,-0.2,TeX("$a$"),cex = 1.2)                                           # mathematical label
+    text(4,-0.2,TeX("$b$"),cex = 1.2)                                           # mathematical label
+}                                                                               # integral figure layout and geometry
+dev.off()                                                                       # close vector output
+
 ```
 
 ```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
@@ -613,70 +600,70 @@ knitr::include_graphics("7-Abbildungen/magl-7-integral-linearitaet.pdf")
 \vspace{2mm}
 \small
 Additivität
-\par\vspace{1mm}
-
-```{r, echo = F, eval = F}
-graphics.off()
-library(latex2exp)
-par(
-family      = "sans",
-pty         = "m",
-bty         = "l",
-lwd         = 1,
-las         = 1,
-mgp         = c(2,1,0),
-xaxs        = "i",
-yaxs        = "i",
-font.main   = 1,
-cex         = 1,
-cex.main    = 1)
-
-# Additivität für f(x) = 5*dnorm(x,0.5) + 1 mit a = 0, c = 1 und b = 2.5
-x           = seq(0,2.5,length=1e4)
-fx          = 5*dnorm(x,0.5) + 1
-a           = 0
-c           = 1
-b           = 2.5
-ai          = min(which(x >= a))
-ci          = max(which(x  < c))
-bi          = max(which(x  < b))
-plot(
-x,
-fx,
-type        = "l",
-ylab        = " ",
-xlim        = c(-.5,3),
-xaxt        = 'n',
-yaxt        = 'n',
-xlab        = '')
-
-polygon(
-c(x[c(ai, ai:ci, ci)]),
-c(0, fx[ai:ci], 0),
-col         = "gray80")
-
-polygon(
-c(x[c(ci, ci:bi, bi)]),
-c(0, fx[ci:bi], 0),
-col         = "gray90")
-
-text(0  ,1.1, TeX("$a$") , xpd= T, cex = 1.2)
-text(1  ,1.1, TeX("$c$") , xpd= T, cex = 1.2)
-text(2.5,1.1, TeX("$b$") , xpd= T, cex = 1.2)
-
-text(0.5  , 1.6, TeX("$\\int_{a}^{c} f(x)dx$") , xpd= T, cex = 1)
-text(1.5  , 1.6, TeX("$\\int_{c}^{b} f(x)dx$") , xpd= T, cex = 1)
-
-dev.copy2pdf(
-file        = "./7-Abbildungen/magl-7-integral-additivität.pdf",
-width       = 5,
-height      = 3.5)
-```
-```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("7-Abbildungen/magl-7-integral-additivität.pdf")
-```
 
 \vspace{1mm}
+```{r, echo = F, eval = F}
+pdf(                                                                            # vector output
+file   = './7-Abbildungen/magl-7-integral-additivität.pdf',                 # filename
+width  = 6,                                                                     # width
+height = 4)                                                                     # height
+library(latex2exp)                                                              # mathematical labels
+par(                                                                            # compact layout
+family = 'sans',                                                                # font family
+mar    = c(0.2, 0.2, 2.7, 0.2),                                                 # compact outer margins
+bty    = 'n',                                                                   # explicit axes
+lwd    = 1,                                                                     # uniform line width
+xaxs   = 'i',                                                                   # exact horizontal bounds
+yaxs   = 'i')                                                                   # exact vertical bounds
+a      = 0                                                                      # left bound
+c      = 1                                                                      # partition point
+b      = 2.5                                                                    # right bound
+x      = seq(a, b, length.out = 10001)                                          # curve coordinates
+fx     = 5 * dnorm(x, 0.5) + 1                                                  # integrand
+xa     = seq(a, c, length.out = 4001)                                           # first interval
+xb     = seq(c, b, length.out = 6001)                                           # second interval
+plot(                                                                           # initialize plot
+x,                                                                              # horizontal coordinates
+fx,                                                                             # vertical coordinates
+type   = 'n',                                                                   # fills drawn before lines
+xlim   = c(-0.15, 2.65),                                                        # compact horizontal range
+ylim   = c(-0.35, 3.15),                                                        # zero baseline included
+axes   = FALSE,                                                                 # explicit axes
+xlab   = '',                                                                    # separate labels
+ylab   = '')                                                                    # no vertical label
+ttl    = paste0('$\\int_{a}^{b} f(x)\\, dx = ',                                 # total integral
+'\\int_{a}^{c} f(x)\\, dx + \\int_{c}^{b} f(x)\\, dx$')                         # partition
+title(main = TeX(ttl), line = 0.7, font.main = 1)                               # additivity title
+polygon(                                                                        # first integration region
+c(a, xa, c),                                                                    # horizontal coordinates
+c(0, 5 * dnorm(xa, 0.5) + 1, 0),                                                # vertical coordinates
+col    = 'gray80',                                                              # first fill
+border = NA)                                                                    # avoid baseline overlap
+polygon(                                                                        # second integration region
+c(c, xb, b),                                                                    # horizontal coordinates
+c(0, 5 * dnorm(xb, 0.5) + 1, 0),                                                # vertical coordinates
+col    = 'gray90',                                                              # second fill
+border = NA)                                                                    # avoid baseline overlap
+segments(                                                                       # integration boundaries
+c(a, c, b),                                                                     # horizontal starts
+0,                                                                              # vertical starts
+c(a, c, b),                                                                     # horizontal ends
+5 * dnorm(c(a, c, b), 0.5) + 1)                                                 # boundary heights
+lines(x, fx)                                                                    # continuous curve
+segments(-0.12, 0, 2.62, 0, lwd = 1)                                            # uniform x-axis
+segments(-0.12, 0, -0.12, 3.1, lwd = 1)                                         # vertical axis
+text(a, -0.17, TeX('$a$'), cex = 1.2)                                           # left bound label
+text(c, -0.17, TeX('$c$'), cex = 1.2)                                           # partition label
+text(b, -0.17, TeX('$b$'), cex = 1.2)                                           # right bound label
+text(0.5, 0.9, TeX('$\\int_{a}^{c} f(x)\\, dx$'))                               # first integral
+text(1.7, 0.9, TeX('$\\int_{c}^{b} f(x)\\, dx$'))                               # second integral
+dev.off()                                                                       # close PDF
+```
+```{r, echo = FALSE, out.width = "60%", fig.align = "center"}
+knitr::include_graphics("7-Abbildungen/magl-7-integral-additivität.pdf")
+```
+\vspace{1mm}
+
 \footnotesize
 * Der Punkt $c$ zerlegt das Integrationsintervall in zwei Teilintervalle.
 * Die grauen Teilflächen zeigen die Integrale von $a$ bis $c$ und $c$ bis $b$.
@@ -686,7 +673,6 @@ knitr::include_graphics("7-Abbildungen/magl-7-integral-additivität.pdf")
 \vspace{2mm}
 \small
 Orientierung
-\par\vspace{1mm}
 
 ```{r, echo = FALSE, eval = FALSE}
 library(latex2exp)
@@ -728,7 +714,8 @@ for (idx in 1:2) {
     axes    = FALSE,
     xlab    = "",
     ylab    = "",
-    main    = TeX(ttl))
+    main    = "")                                                               # reserve title placement
+    title(main = TeX(ttl), line = 0.0)                                          # lower title to retain integral limits
     rect(
     head(pts,-1),
     0,
@@ -904,28 +891,77 @@ F : I \to \mathbb{R}, x \mapsto F(x) := \int_a^x f(t)\,dt
 \end{equation}
 eine Stammfunktion von $f$. Es gilt also $F'(x) = f(x)$ für alle $x \in I$.
 \end{theorem}
+
+
+Bemerkungen
+
+* Der erste Hauptsatz verbindet Differenzial- und Integralrechnung
+* Für eine Funktion $f$ gibt der erste Hauptsatz eine Stammfunktion an, deren Ableitung $f$ ist.
+* Der erste Hauptsatz ist die direkte Voraussetzung für die Integralrechnung mit dem zweiten Hauptsatz.
+* Folgender Beweis führt den ersten Hauptsatz auf den Mittelwertsatz der Integralrechnung zurück.
+
+
+# Bestimmte Integrale
+\footnotesize
+
 \underline{Beweis}
 
-Es sei $x \in I$ und $h \ne 0$ so klein, dass $x + h \in I$. Additivität und 
-Orientierung des Integrals ergeben für den Newtonschen Differenzenquotienten zunächst
+Wir wollen zeigen, dass für $F(x) := \int_a^x f(t) \,dt$ gilt, dass
+\begin{equation}
+F'(x) = \lim_{h \to 0} \frac{(F(x+h) - F(x))}{h} = f(x).
+\end{equation}
+Wir betrachten zunächst den Newtonschen Differenzquotienten für $h \ne 0$, wobei
+$h$ so klein gewählt wird, dass $x+h \in I$ liegt. Mit der Additivität
+und Orientierung des Integrals gilt
 \begin{equation}
 \frac{1}{h}\left(F(x+h) - F(x)\right) 
 = \frac{1}{h}\left(\int_a^{x+h} f(t)\,dt - \int_a^x f(t)\,dt\right)
 = \frac{1}{h}\int_x^{x+h} f(t)\,dt.
 \end{equation}
-Der Mittelwertsatz der Integralrechnung liefert für positive wie negative $h$ 
-dann einen Punkt $\xi_h$ zwischen $x$ und $x+h$ mit
+Auch für $h<0$ gilt die folgende Anwendung des Mittelwertsatzes, wenn man
+die Orientierung des Integrals berücksichtigt.
+Der Mittelwertsatz der Integralrechnung liefert dann einen Punkt $\xi_h$ zwischen 
+$x$ und $x+h$ mit
 \begin{equation}
-\frac{1}{h}\left(F(x+h) - F(x)\right) = \frac{1}{h}\int_x^{x+h} f(t)\,dt = f(\xi_h).
+ f(\xi_h) = \frac{1}{(x+h)-x}\int_x^{x+h} f(t)\,dt = \frac{1}{h}\int_x^{x+h} f(t)\,dt
 \end{equation}
-Wegen $|\xi_h - x| \le |h|$ gilt $\xi_h \to x$ für $h \to 0$. Aus der Stetigkeit 
-von $f$ folgt dann
+Einsetzen in den Newtonschen Differenzquotienten ergibt dann
 \begin{equation}
-F'(x) 
-: = \lim_{h \to 0} \frac{1}{h}\left(F(x+h) - F(x)\right)
-= \lim_{h \to 0} f(\xi_h) 
-= f(x).
+\frac{1}{h}\left(F(x+h) - F(x)\right) =  f(\xi_h).  
 \end{equation}
+
+# Bestimmte Integrale
+\footnotesize
+\underline{Beweis (fortgesetzt)}
+
+Für jedes hinreichend kleine $h \ne 0$ wählen wir einen solchen
+Mittelwertsatzpunkt $\xi_h$ und betrachten die Funktion $g(h) := \xi_h$.
+Da $\xi_h$ zwischen $x$ und $x+h$ liegt, gilt
+\begin{equation}
+|g(h)-x| = |\xi_h-x| \le |h|.
+\end{equation}
+Zu jedem $\delta > 0$ gilt daher für alle hinreichend kleinen $h \ne 0$
+mit $|h| < \delta$, dass $|g(h)-x| < \delta$ ist. Nach der Definition
+des Funktionsgrenzwerts folgt
+\begin{equation}
+\lim_{h \to 0} g(h) = x.
+\end{equation}
+Wegen der Stetigkeit von $f$ in $x$ ergibt sich damit
+\begin{equation}
+\lim_{h \to 0} f(\xi_h)
+= \lim_{h \to 0} f(g(h)) = f(x).
+\end{equation}
+Für den Differenzquotienten folgt also
+\begin{equation}
+\lim_{h \to 0} \frac{F(x+h)-F(x)}{h}
+= \lim_{h \to 0} f(\xi_h) = f(x).
+\end{equation}
+Damit ist $F$ in $x$ differenzierbar und es gilt $F'(x)=f(x)$.
+Da $x \in I$ beliebig war, ist $F$ eine Stammfunktion von $f$.
+Der Übergang von $\lim_{h \to 0}g(h)=x$ zu
+$\lim_{h \to 0}f(g(h))=f(x)$ verwendet den Satz zur Grenzwertbildung
+bei stetigen Funktionen aus (5) Folgen, Grenzwerte, Stetigkeit.
+
 
 $\hfill \Box$
 
@@ -1133,7 +1169,7 @@ Wir betrachten die linear-affine Funktion
 \begin{equation}
 f : \mathbb{R} \to \mathbb{R}, x \mapsto f(x) := -x + 1
 \end{equation}
-und wollen das bestimmte Integral dieser Funktion auf dem Intervall $[0,2] $,
+und wollen das bestimmte Integral dieser Funktion auf dem Intervall $[0,2]$,
 also
 \begin{equation}
 \int_0^2 f(x)\,dx = \int_0^2 -x + 1 \,dx
