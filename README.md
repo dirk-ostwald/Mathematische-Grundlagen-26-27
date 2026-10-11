@@ -4,7 +4,7 @@ Vorlesungsmaterialien von **Prof. Dr. Dirk Ostwald**, Institut für Psychologie,
 Otto-von-Guericke-Universität Magdeburg. Die Veranstaltung vermittelt mathematische
 Grundlagen für das Psychologiestudium, von Sprache und Logik bis zur Integralrechnung.
 
-## Materialien lesen
+## Materialien
 
 Die Folien liegen als fertige PDFs vor. Zum Lesen ist keine Softwareinstallation
 außer einem PDF-Betrachter erforderlich.
@@ -25,45 +25,6 @@ enthält die Kapitel 101–107 des Lehrbuchs *Probabilistische Datenwissenschaft
 für die Psychologie (PDWP)*. Die PDF kann direkt geöffnet oder heruntergeladen
 werden. Die zugrunde liegenden Kapitelquellen werden im separaten PDWP-Projekt
 gepflegt.
-
-## Aufbau
-
-- `0-Formalia/` und `1-…/` bis `7-…/` enthalten die Folien als `.qmd` und `.pdf`,
-  lokale LaTeX-Header sowie Literaturverzeichnisse im BibTeX-Format.
-- Die jeweiligen Abbildungsordner enthalten Grafiken und teilweise bearbeitbare
-  PowerPoint-Quelldateien.
-- `Skript/_book/` enthält das fertige Vorlesungsskript als PDF.
-- `Skript/` enthält außerdem die Konfiguration und Vorbemerkungen des Skripts.
-
-## Folien selbst erstellen
-
-Benötigt werden Quarto, R mit den Paketen `knitr`, `rmarkdown` und `latex2exp`
-sowie eine LaTeX-Installation mit Beamer und den in den Headern eingebundenen
-Paketen. Einzelne R-Codeblöcke erzeugen Abbildungen beim Rendern neu.
-
-Die R-Pakete lassen sich in einer R-Konsole installieren:
-
-```r
-install.packages(c("knitr", "rmarkdown", "latex2exp"))
-```
-
-Für die Folien gibt es kein gemeinsames Quarto-Projekt im Repository-Hauptordner.
-Das jeweilige Dokument wird aus seinem Themenordner gerendert, beispielsweise:
-
-```powershell
-cd 1-Sprache-und-Logik
-quarto render 1-Sprache-und-Logik.qmd --to beamer
-```
-
-Die PDF-Ausgabe liegt neben der Quelldatei und ersetzt dort die vorhandene PDF.
-Für Formalia lautet der entsprechende Aufruf im Ordner `0-Formalia`:
-
-```powershell
-quarto render Formalia.qmd --to beamer
-```
-
-Die Folien-PDFs, das Skript-PDF und Abbildungen werden mit Git versioniert. Temporäre
-Render-Dateien, Caches und die extern eingebundenen Skriptquellen werden ignoriert.
 
 ## Korrekturen und Beiträge
 
