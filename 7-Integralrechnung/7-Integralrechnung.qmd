@@ -1360,10 +1360,10 @@ Mehrdimensionale Integrale
 
 **Selbstkontrollfragen**
 
-# Selbstkontrollfragen
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
-\vfill
-\setstretch{3}
+\setstretch{1.2}
+
 1. Geben Sie die Definition des Begriffs der Stammfunktion wieder.
 1. Geben Sie die Definition des Begriffs des unbestimmten Integrals wieder.
 1. Erläutern Sie die intuitive Bedeutung des Begriffs des Riemannschen
@@ -1373,12 +1373,11 @@ Integrals.
 wieder.
 1. Erläutern Sie den Begriff des uneigentlichen Integrals.
 1. Erläutern Sie den Begriff des mehrdimensionalen Integrals.
-\vfill
 
-# Selbstkontrollfragen - Lösungen
+# Selbstkontrollfragen - Lösungen {.allowframebreaks}
 \footnotesize
-\vfill
-\setstretch{3}
+\setstretch{1.2}
+
 1. Siehe Definition (Unbestimmtes Integral und Stammfunktion).
 1. Siehe Definition (Unbestimmtes Integral und Stammfunktion).
 1. Das Riemannsche Integral entspricht der vorzeichenbehafteten Fläche zwischen
@@ -1389,3 +1388,4 @@ dem Funktionsgraphen und der $x$-Achse.
 durch geeignete Grenzwerte.
 1. Mehrdimensionale Integrale sind Integrale multivariater Funktionen über
 Teilmengen ihrer Definitionsmenge.
+

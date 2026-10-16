@@ -1097,9 +1097,10 @@ Elementare Funktionen
 **Selbstkontrollfragen**
 \vfill
 
-# Selbstkontrollfragen
-\setstretch{1.6}
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
+\setstretch{1.2}
+
 1. Geben Sie die Definition einer Funktion wieder.
 1. Geben Sie die Definition der Begriffe Bildmenge, Wertebereich, Urbildmenge und Urbild wieder.
 1. Geben Sie die Definitionen der Begriffe Surjektivität, Injektivität und
@@ -1118,9 +1119,10 @@ Bijektivität wieder.
 1. Skizzieren Sie die Funktionen $f(x) := (x-1)^2$ und $g(x) := (x + 3)^2$.
 1. Skizzieren Sie die Exponential- und Logarithmusfunktionen.
 
-# Selbstkontrollfragen - Lösungen
-\setstretch{1.6}
+# Selbstkontrollfragen - Lösungen {.allowframebreaks}
 \footnotesize
+\setstretch{1.2}
+
 1. Siehe Definition (Funktion).
 1. Siehe Definition (Bildmenge, Wertebereich, Urbildmenge, Urbild).
 1. Siehe Definition (Injektivität, Surjektivität, Bijektivität).

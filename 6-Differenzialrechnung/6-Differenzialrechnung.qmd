@@ -1580,9 +1580,10 @@ Differenzialrechnung multivariater reellwertiger Funktionen
 **Selbstkontrollfragen**
 \vfill
 
-# Selbstkontrollfragen
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
-\setstretch{2}
+\setstretch{1.2}
+
 1. Geben Sie die Definition des Begriffs der Ableitung $f'(a)$ einer Funktion
 $f$ an einer Stelle $a$ wieder.
 1. Geben Sie die Definition des Begriffs der Ableitung $f'$ einer Funktion $f$
@@ -1611,9 +1612,9 @@ Funktion wieder.
 1. Geben Sie die Definition der Hesse-Matrix einer multivariaten reellwertigen
 Funktion wieder.
 
-# Selbstkontrollfragen - Lösungen
+# Selbstkontrollfragen - Lösungen {.allowframebreaks}
 \footnotesize
-\setstretch{2}
+\setstretch{1.2}
 
 1. Siehe Definition (Differenzierbarkeit und Ableitung).
 1. Siehe Definition (Differenzierbarkeit und Ableitung).
@@ -1633,8 +1634,6 @@ Funktionen).
 1. Siehe Definition (Hesse-Matrix).
 
 <!-- # Selbstkontrollfragen - Übungsaufgaben
-\footnotesize
-\setstretch{2}
 
 
 1. Bestimmen Sie die erste Ableitung der Funktion $f(x) := 3x^2 +
@@ -1651,6 +1650,5 @@ $f : \mathbb{R}^2 \to \mathbb{R}, x \mapsto f(x) :=
 in $x = (1,2)^T$ aus.
 1. Geben Sie die Hesse-Matrix obiger Funktion $f$ an und werten Sie sie in $x =
 (1,2)^T$ aus.
-
 
 # Selbstkontrollfragen - Lösungen der Übungsaufgaben   -->

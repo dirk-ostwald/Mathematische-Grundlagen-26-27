@@ -846,9 +846,9 @@ Beweistechniken
 
 **Selbstkontrollfragen** 
 
-# Selbstkontrollfragen
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
-\setstretch{2}
+\setstretch{1.2}
 
 1. Erläutern Sie die Besonderheiten der mathematischen Sprache.
 1. Was sind wesentliche Tätigkeiten zum Erlernen einer Sprache?
@@ -864,10 +864,9 @@ Beweistechniken
 1. Geben Sie die Definition der logischen Äquivalenz wieder.
 1. Erläutern Sie den Begriff des direkten Beweises.
 
-
-# Selbstkontrollfragen - Lösungen
+# Selbstkontrollfragen - Lösungen {.allowframebreaks}
 \footnotesize
-\setstretch{2}
+\setstretch{1.2}
 
 1. Siehe Folie 5. Die mathematische Sprache ist sehr genau und ihre Gegenstände meist abstrakt, um eine möglichst hohe Allgemeingültigkeit zu erzielen.
 1. Siehe Folie 6. 
@@ -884,3 +883,4 @@ Grundannahme.
 1. Siehe Definition (Logische Äquivalenz). 
 1. Direkte Beweise leiten die Konklusion $B$ aus der Voraussetzung $A$ durch
  gültige Schlussfolgerungen her. Dabei können Äquivalenzumformungen verwendet werden.
+

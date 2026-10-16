@@ -836,9 +836,9 @@ Spezielle Mengen
 
 **Selbstkontrollfragen**
 
-# Selbstkontrollfragen 
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
-\setstretch{2.3}
+\setstretch{1.2}
 
 1. Geben Sie die Definition einer Menge nach Cantor (1895) wieder.
 1. Nennen Sie drei Möglichkeiten zur Definition einer Menge.
@@ -855,11 +855,9 @@ wieder.
 1. Es seien $M$ und $N$ Mengen. Erläutern Sie die Notation $M \times N$.
 1. Geben Sie die Definition von $\mathbb{R}^n$ wieder.
 
-
-
-# Selbstkontrollfragen 
+# Selbstkontrollfragen {.allowframebreaks}
 \footnotesize
-\setstretch{2}
+\setstretch{1.2}
 
 1. Siehe Definition (Mengen).
 1. Siehe Definition (Mengen).
@@ -877,7 +875,6 @@ $0,1,2,...$.
 1. Siehe Definition (Intervalle).
 1. Siehe Definition (Kartesische Produkte).
 1. Siehe Definition (Menge der reellen Tupel $n$-ter Ordnung).
-
 
 # Referenzen
 \footnotesize
