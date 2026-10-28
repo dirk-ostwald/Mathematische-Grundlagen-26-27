@@ -1,6 +1,6 @@
 # Vorlesungsskript „Mathematische Grundlagen“
 
-**[Vorlesungsskript als PDF öffnen oder herunterladen](_book/Skript-Mathematische-Grundlagen.pdf)**
+**[Vorlesungsskript als PDF öffnen oder herunterladen](_book/Mathematische-Grundlagen-2027.pdf)**
 
 Das Skript begleitet die Veranstaltung *Mathematische Grundlagen* von
 Prof. Dr. Dirk Ostwald an der Otto-von-Guericke-Universität Magdeburg im

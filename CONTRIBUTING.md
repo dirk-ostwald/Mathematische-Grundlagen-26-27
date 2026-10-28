@@ -29,11 +29,11 @@ Neue Fremdinhalte benötigen nachvollziehbare Quellen- und Lizenzangaben.
 
 Die Kapitel des Skripts stammen aus einem separaten PDWP-Quellprojekt.
 Inhaltliche Änderungen dieser Kapitel gehören dorthin. Die lokale Einbindung
-`Skript/_src` ist eine Verzeichnisverknüpfung, keine unabhängige Kopie.
+`Vorlesungsskript/_src` ist eine Verzeichnisverknüpfung, keine unabhängige Kopie.
 Änderungen darin wirken unmittelbar auf das Quellprojekt.
 
 In diesem Repository liegen die Skriptkonfiguration, Titelseite, Vorbemerkungen
-und das fertige Skript unter `Skript/_book/Skript-Mathematische-Grundlagen.pdf`.
+und das fertige Skript unter `Vorlesungsskript/_book/Mathematische-Grundlagen-2027.pdf`.
 Bei Aktualisierungen des Skripts auch die geprüfte PDF in Git aufnehmen.
 Die Verknüpfung und Quarto-Caches bleiben außerhalb der Versionsverwaltung.
 

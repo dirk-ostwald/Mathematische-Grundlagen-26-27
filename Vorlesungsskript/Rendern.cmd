@@ -19,5 +19,5 @@ if errorlevel 1 (
 )
 
 echo.
-echo Fertig: _book\Skript-Mathematische-Grundlagen.pdf
+echo Fertig: _book\Mathematische-Grundlagen-2027.pdf
 pause
